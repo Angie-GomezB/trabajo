@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("cidvweb")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+029456084b23ab3c46ee3ac91312478ea38c7413")]
 [assembly: System.Reflection.AssemblyProductAttribute("cidvweb")]
 [assembly: System.Reflection.AssemblyTitleAttribute("cidvweb")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

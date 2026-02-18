@@ -1,0 +1,675 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de Facturas - Sistema de Facturación FEDEX</title>
+
+    <link rel="Shortcut Icon" href="../../img/ico/ico-serlefin.png" type="image/png">
+    <link rel="stylesheet" href="../../css/lib/beer.min.css">
+    <link rel="stylesheet" href="../../css/own/colors.css">
+    <link rel="stylesheet" href="../../css/own/main.css">
+
+    <script src="../../js/lib/vue.global.js"></script>
+    <script src="../../js/lib/axios.min.js"></script>
+    <script src="../../js/own/axios-helper.js"></script>
+</head>
+<body>
+    <div id="listaFacturasBcaDiv">
+
+        <!-- HEADER -->
+        <header class="primary" style="position: sticky; top: 0; z-index: 100;">
+            <nav class="padding">
+                <div class="row">
+                    <div class="max">
+                        <div class="row">
+                            <img src="../../img/background/logo_nuevo3.png" alt="FedEx" style="height: 50px; width:auto">
+                            <h6 class="small-margin">Sistema de Facturación</h6>
+                        </div>
+                    </div>
+                </div>
+                <p class="tiny-text no-margin white-text" style="position: absolute; right: 80px; top: 50%; transform: translateY(-50%);">{{ sucursalNombre }}</p>
+            </nav>
+        </header>
+
+        <main class="responsive">
+
+            <!-- ============================================================ -->
+            <!-- PANTALLA: LISTADO                                            -->
+            <!-- ============================================================ -->
+            <div v-if="pantalla === 'listado'" class="margin" style="margin-top: 4px; margin-bottom: 0;">
+
+                <div class="row" style="margin-bottom: 4px;">
+                    <div class="max">
+                        <h5 class="primary-text" style="margin: 0 0 1px 0;">Pantalla Facturas</h5>
+                        <p class="no-margin" style="margin: 0; font-size: 0.85rem;">Listado y gestión de facturas</p>
+                    </div>
+                    <button class="secondary" v-on:click="irACrearFactura">
+                        <i>add</i>
+                        <span>Nueva Factura</span>
+                    </button>
+                </div>
+
+                <article class="border round" style="overflow: hidden;">
+
+                    <!-- Loading -->
+                    <div v-if="cargando" class="center-align padding">
+                        <progress class="circle medium"></progress>
+                        <p>Cargando facturas...</p>
+                    </div>
+
+                    <div v-else>
+
+                        <!-- Sin datos -->
+                        <div v-if="todasFacturasCache.length === 0" class="padding center-align">
+                            <i class="extra">receipt_long</i>
+                            <p>No hay facturas registradas aún.</p>
+                            <div class="space"></div>
+                            <button class="secondary" v-on:click="irACrearFactura">
+                                <i>add</i>
+                                <span>Crear primera factura</span>
+                            </button>
+                        </div>
+
+                        <div v-else>
+                            <div id="tablaFacturasScroll"
+                                 style="max-height: calc(100vh - 172px); overflow-y: auto;"
+                                 v-on:scroll="onScrollTabla">
+                                <table class="border" style="width:100%;">
+                                    <thead style="position: sticky; top: 0; z-index: 10; background: var(--surface);">
+                                        <tr>
+                                            <th style="min-width:140px; padding: 6px 8px; vertical-align: bottom;">
+                                                <div style="font-size:0.75rem; color:var(--on-surface-variant); margin-bottom:3px;">ID Fiscal</div>
+                                                <input type="text"
+                                                       v-model="filtroIdFiscal"
+                                                       v-on:input="aplicarFiltros"
+                                                       placeholder="Buscar..."
+                                                       maxlength="20"
+                                                       style="width:100%; height:26px; font-size:0.78rem; padding:2px 6px; border:1px solid var(--outline); border-radius:4px; background:var(--surface-container-low);">
+                                            </th>
+                                            <th style="min-width:180px; padding: 6px 8px; vertical-align: bottom;">
+                                                <div style="font-size:0.75rem; color:var(--on-surface-variant); margin-bottom:3px;">Nombre cliente</div>
+                                                <input type="text"
+                                                       v-model="filtroNombre"
+                                                       v-on:input="aplicarFiltros"
+                                                       placeholder="Buscar..."
+                                                       maxlength="200"
+                                                       style="width:100%; height:26px; font-size:0.78rem; padding:2px 6px; border:1px solid var(--outline); border-radius:4px; background:var(--surface-container-low);">
+                                            </th>
+                                            <th style="min-width:120px; padding: 6px 8px; font-size:0.80rem; vertical-align: bottom;">N° Factura</th>
+                                            <th style="min-width:90px; padding: 6px 8px; font-size:0.80rem; vertical-align: bottom;">Fecha</th>
+                                            <th style="min-width:120px; padding: 6px 8px; font-size:0.80rem; vertical-align: bottom;">Valor</th>
+                                            <th class="center-align" style="min-width:80px; padding: 6px 8px; font-size:0.80rem; vertical-align: bottom;">Estado</th>
+                                            <th style="min-width:100px; padding: 6px 8px; font-size:0.80rem; vertical-align: bottom;">Creado por</th>
+                                            <th style="min-width:100px; padding: 6px 8px; font-size:0.80rem; vertical-align: bottom;">Actualizado por</th>
+                                            <th class="center-align" style="min-width:80px; padding: 6px 8px; font-size:0.80rem; vertical-align: bottom;">Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        <!-- Sin resultados con filtro -->
+                                        <tr v-if="facturasFiltradas.length === 0">
+                                            <td colspan="8">
+                                                <div class="center-align padding">
+                                                    <i class="extra secondary-text">manage_search</i>
+                                                    <div class="space"></div>
+                                                    <h6>No se encontraron facturas</h6>
+                                                    <p>No hay facturas que coincidan con los filtros ingresados.</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <!-- Filas -->
+                                        <tr v-for="f in facturasVisibles" v-bind:key="f.Id_Factura" style="font-size:0.80rem;">
+                                            <td style="padding:4px 8px; line-height:1.3;">{{ f.Id_Fiscal }}</td>
+                                            <td style="padding:4px 8px; line-height:1.3;">{{ nombreCompletoCliente(f) }}</td>
+                                            <td style="padding:4px 8px; line-height:1.3;"><strong>{{ f.Numero_Factura }}</strong></td>
+                                            <td style="padding:4px 8px; line-height:1.3;">{{ formatFecha(f.Fecha_Emision) }}</td>
+                                            <td style="padding:4px 8px; line-height:1.3;">{{ formatCOP(f.Valor_Factura) }}</td>
+                                            <td class="center-align" style="padding:4px 8px;">
+                                                <span v-if="f.Estado_Factura === 'GENERADA'" style="background:#4caf50;color:#fff;font-size:0.65rem;padding:2px 7px;border-radius:10px;font-weight:600;white-space:nowrap;">GENERADA</span>
+                                                <span v-else-if="f.Estado_Factura === 'AJUSTADA'" style="background:#ff6600;color:#fff;font-size:0.65rem;padding:2px 7px;border-radius:10px;font-weight:600;white-space:nowrap;">AJUSTADA</span>
+                                                <span v-else style="background:var(--surface-variant);color:var(--on-surface-variant);font-size:0.65rem;padding:2px 7px;border-radius:10px;font-weight:600;white-space:nowrap;">{{ f.Estado_Factura }}</span>
+                                            </td>
+                                            <td style="padding:4px 8px; line-height:1.3; font-size:0.78rem;">{{ f.Created_By || '-' }}</td>
+                                            <td style="padding:4px 8px; line-height:1.3; font-size:0.78rem;">{{ f.Updated_By || '-' }}</td>
+                                            <td class="center-align" style="padding:4px 6px; white-space:nowrap;">
+                                                <button class="small-round border" v-on:click="verDetalle(f)" title="Ver detalle" style="width:28px;height:28px;min-width:28px;margin:0 2px;">
+                                                    <i style="font-size:0.9rem;">visibility</i>
+                                                </button>
+                                                <button class="small-round secondary" v-on:click="editarFactura(f)" title="Editar" style="width:28px;height:28px;min-width:28px;margin:0 2px;">
+                                                    <i style="font-size:0.9rem;">edit</i>
+                                                </button>
+                                            </td>
+                                        </tr>
+
+                                        <!-- Cargando más -->
+                                        <tr v-if="cargandoMas">
+                                            <td colspan="8" class="center-align" style="padding:10px;">
+                                                <progress class="circle small"></progress>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!-- Pie tabla -->
+                            <div class="padding" style="padding-top:6px; padding-bottom:6px;">
+                                <p class="tiny-text" style="margin:0; color: var(--on-surface-variant);">
+                                    Mostrando <strong>{{ facturasVisibles.length }}</strong> de <strong>{{ facturasFiltradas.length }}</strong> facturas
+                                    <span v-if="filtroIdFiscal.trim() || filtroNombre.trim()"> (filtradas)</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <!-- FIN LISTADO -->
+            <!-- ============================================================ -->
+            <!-- PANTALLA: DETALLE                                            -->
+            <!-- ============================================================ -->
+            <div v-if="pantalla === 'detalle' && facturaSeleccionada" class="margin">
+                <div class="row">
+                    <h5 class="max primary-text">Detalle de Factura</h5>
+                    <button class="border" v-on:click="verHistorial(facturaSeleccionada)">
+                        <i>history</i>
+                        <span>Historial</span>
+                    </button>
+                    <button class="secondary" v-on:click="editarFactura(facturaSeleccionada)">
+                        <i>edit</i>
+                        <span>Editar</span>
+                    </button>
+                    <button class="border" v-on:click="pantalla = 'listado'">
+                        <i>arrow_back</i>
+                        <span>Volver</span>
+                    </button>
+                </div>
+                <div class="space"></div>
+
+                <!-- Cliente -->
+                <article class="border round" style="margin-bottom:12px;">
+                    <div class="primary-container padding">
+                        <div class="row">
+                            <i class="secondary-text">person</i>
+                            <h6 class="secondary-text">Datos del Cliente</h6>
+                        </div>
+                    </div>
+                    <div class="padding">
+                        <article class="surface-container round padding">
+                            <div class="grid">
+                                <div class="s12 m4">
+                                    <p class="tiny-text upper bold">ID Fiscal</p>
+                                    <p>{{ facturaSeleccionada.Id_Fiscal }}</p>
+                                </div>
+                                <div class="s12 m8">
+                                    <p class="tiny-text upper bold">Cliente</p>
+                                    <p>{{ nombreCompletoCliente(facturaSeleccionada) }}</p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </article>
+
+                <!-- Factura -->
+                <article class="border round">
+                    <div class="primary-container padding">
+                        <div class="row">
+                            <i class="secondary-text">receipt_long</i>
+                            <h6 class="max secondary-text">{{ facturaSeleccionada.Numero_Factura }}</h6>
+                            <span v-if="facturaSeleccionada.Estado_Factura === 'GENERADA'" style="background:#4caf50;color:#fff;font-size:0.70rem;padding:2px 8px;border-radius:10px;font-weight:600;">GENERADA</span>
+                            <span v-else-if="facturaSeleccionada.Estado_Factura === 'AJUSTADA'" style="background:#ff6600;color:#fff;font-size:0.70rem;padding:2px 8px;border-radius:10px;font-weight:600;">AJUSTADA</span>
+                            <span v-else style="background:var(--surface-variant);font-size:0.70rem;padding:2px 8px;border-radius:10px;font-weight:600;">{ facturaSeleccionada.Estado_Factura }}</span>
+                        </div>
+                    </div>
+                    <div class="padding">
+
+                        <p class="small-text bold primary-text">Información General</p>
+                        <article class="surface-container round padding">
+                            <div class="grid">
+                                <div class="s12 m3">
+                                    <p class="tiny-text upper bold">Número Factura</p>
+                                    <p>{{ facturaSeleccionada.Numero_Factura }}</p>
+                                </div>
+                                <div class="s12 m3">
+                                    <p class="tiny-text upper bold">Secuencia</p>
+                                    <p>{{ facturaSeleccionada.Secuencia_Factura }}</p>
+                                </div>
+                                <div class="s12 m3">
+                                    <p class="tiny-text upper bold">Fecha Emisión</p>
+                                    <p>{{ formatFecha(facturaSeleccionada.Fecha_Emision) }}</p>
+                                </div>
+                                <div class="s12 m3">
+                                    <p class="tiny-text upper bold">Sucursal Emisora</p>
+                                    <p>{{ facturaSeleccionada.Sucursal_Emisora }}</p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <div class="space"></div>
+                        <p class="small-text bold primary-text">Tipo y Modalidad</p>
+                        <article class="surface-container round padding">
+                            <div class="grid">
+                                <div class="s12 m4">
+                                    <p class="tiny-text upper bold">Tipo Factura</p>
+                                    <p>{{ facturaSeleccionada.Tipo_Factura }}</p>
+                                </div>
+                                <div class="s12 m4">
+                                    <p class="tiny-text upper bold">Modalidad</p>
+                                    <p>{{ facturaSeleccionada.modalidad }}</p>
+                                </div>
+                                <div class="s12 m4">
+                                    <p class="tiny-text upper bold">Tipo Servicio</p>
+                                    <p>{{ facturaSeleccionada.Tipo_Servicio }}</p>
+                                </div>
+                                <div class="s12" v-if="facturaSeleccionada.Codigo_Ean_Fedex">
+                                    <p class="tiny-text upper bold">Código EAN FEDEX</p>
+                                    <p>{{ facturaSeleccionada.Codigo_Ean_Fedex }}</p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <div class="space"></div>
+                        <p class="small-text bold primary-text">Valores</p>
+                        <article class="primary-container round padding">
+                            <div class="grid">
+                                <div class="s12 m3">
+                                    <p class="tiny-text">Valor Factura</p>
+                                    <h6 class="secondary-text">{{ formatCOP(facturaSeleccionada.Valor_Factura) }}</h6>
+                                </div>
+                                <div class="s12 m3">
+                                    <p class="tiny-text">Base Cálculo</p>
+                                    <h6 class="secondary-text">{{ formatCOP(facturaSeleccionada.Base_Calculo) }}</h6>
+                                </div>
+                                <div class="s12 m3">
+                                    <p class="tiny-text">Impuesto ({{ facturaSeleccionada.Porcentaje_Impuesto }}%)</p>
+                                    <h6 class="secondary-text">{{ formatCOP(facturaSeleccionada.Valor_Impuesto) }}</h6>
+                                </div>
+                                <div class="s12 m3">
+                                    <p class="tiny-text">TOTAL</p>
+                                    <h5 class="secondary-text">{{ formatCOP(parseFloat(facturaSeleccionada.Valor_Factura || 0) + parseFloat(facturaSeleccionada.Valor_Impuesto || 0)) }}</h5>
+                                </div>
+                            </div>
+                        </article>
+
+                        <div class="space" v-if="facturaSeleccionada.observaciones"></div>
+                        <p class="small-text bold primary-text" v-if="facturaSeleccionada.observaciones">Observaciones</p>
+                        <article class="surface-container round padding" v-if="facturaSeleccionada.observaciones">
+                            <p>{{ facturaSeleccionada.observaciones }}</p>
+                        </article>
+
+                    </div>
+                </article>
+            </div>
+            <!-- FIN DETALLE -->
+            <!-- ============================================================ -->
+            <!-- PANTALLA: HISTORIAL                                          -->
+            <!-- ============================================================ -->
+            <div v-if="pantalla === 'historial'" class="margin">
+                <div class="row">
+                    <h5 class="max primary-text">Historial de Cambios</h5>
+                    <button class="border" v-on:click="pantalla = 'detalle'">
+                        <i>arrow_back</i>
+                        <span>Volver</span>
+                    </button>
+                </div>
+                <p v-if="facturaSeleccionada">Factura: <strong>{{ facturaSeleccionada.Numero_Factura }}</strong></p>
+                <div class="space"></div>
+
+                <div v-if="cargandoHistorial" class="center-align padding">
+                    <progress class="circle medium"></progress>
+                    <p>Cargando historial...</p>
+                </div>
+
+                <article v-else class="border round">
+                    <div v-if="historialFactura.length === 0" class="padding center-align">
+                        <i class="extra secondary-text">history</i>
+                        <div class="space"></div>
+                        <h6>Sin cambios registrados</h6>
+                        <p>Esta factura no tiene historial de modificaciones.</p>
+                    </div>
+                    <div v-else class="scroll">
+                        <table class="border">
+                            <thead>
+                                <tr>
+                                    <th style="font-size:0.80rem;">Fecha Cambio</th>
+                                    <th style="font-size:0.80rem;">Usuario</th>
+                                    <th style="font-size:0.80rem;">Estado</th>
+                                    <th style="font-size:0.80rem;">Valor</th>
+                                    <th style="font-size:0.80rem;">Impuesto</th>
+                                    <th style="font-size:0.80rem;">Motivo</th>
+                                    <th class="center-align" style="font-size:0.80rem;">Detalle</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="h in historialFactura" v-bind:key="h.Id_Historial" style="font-size:0.80rem;">
+                                    <td style="padding:4px 8px;">{{ formatFechaHora(h.Fecha_Cambio) }}</td>
+                                    <td style="padding:4px 8px;">{{ h.Usuario_Cambio }}</td>
+                                    <td style="padding:4px 8px;">
+                                        <span v-if="h.Estado_Factura === 'GENERADA'" style="background:#4caf50;color:#fff;font-size:0.70rem;padding:2px 8px;border-radius:10px;font-weight:600;">GENERADA</span>
+                                        <span v-else-if="h.Estado_Factura === 'AJUSTADA'" style="background:#ff6600;color:#fff;font-size:0.70rem;padding:2px 8px;border-radius:10px;font-weight:600;">AJUSTADA</span>
+                                        <span v-else style="background:var(--surface-variant);font-size:0.70rem;padding:2px 8px;border-radius:10px;font-weight:600;">{ h.Estado_Factura }}</span>
+                                    </td>
+                                    <td style="padding:4px 8px;">{{ formatCOP(h.Valor_Factura) }}</td>
+                                    <td style="padding:4px 8px;">{{ formatCOP(h.Valor_Impuesto) }}</td>
+                                    <td style="padding:4px 8px;">{{ h.Motivo_Cambio || '-' }}</td>
+                                    <td class="center-align" style="padding:4px 8px;">
+                                        <button class="small-round border" v-on:click="verDetalleHistorial(h)" title="Ver detalle del cambio">
+                                            <i>zoom_in</i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </article>
+            </div>
+
+            <!-- ============================================================ -->
+            <!-- PANTALLA: DETALLE DE UN CAMBIO EN HISTORIAL                 -->
+            <!-- ============================================================ -->
+            <div v-if="pantalla === 'detalle_historial' && historialSeleccionado" class="margin">
+                <div class="row">
+                    <h5 class="max primary-text">Detalle del Cambio</h5>
+                    <button class="border" v-on:click="pantalla = 'historial'">
+                        <i>arrow_back</i>
+                        <span>Volver</span>
+                    </button>
+                </div>
+                <p v-if="facturaSeleccionada">Factura: <strong>{{ facturaSeleccionada.Numero_Factura }}</strong></p>
+                <div class="space"></div>
+
+                <article class="border round">
+                    <div class="primary-container padding">
+                        <div class="row">
+                            <i class="secondary-text">manage_history</i>
+                            <h6 class="secondary-text">Registro de cambio — {{ formatFechaHora(historialSeleccionado.Fecha_Cambio) }}</h6>
+                        </div>
+                    </div>
+                    <div class="padding">
+
+                        <p class="small-text bold primary-text">Quién y cuándo</p>
+                        <article class="surface-container round padding">
+                            <div class="grid">
+                                <div class="s12 m6">
+                                    <p class="tiny-text upper bold">Usuario que realizó el cambio</p>
+                                    <p>{{ historialSeleccionado.Usuario_Cambio }}</p>
+                                </div>
+                                <div class="s12 m6">
+                                    <p class="tiny-text upper bold">Fecha y hora del cambio</p>
+                                    <p>{{ formatFechaHora(historialSeleccionado.Fecha_Cambio) }}</p>
+                                </div>
+                                <div class="s12">
+                                    <p class="tiny-text upper bold">Motivo del cambio</p>
+                                    <p>{{ historialSeleccionado.Motivo_Cambio || 'No especificado' }}</p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <div class="space"></div>
+                        <p class="small-text bold primary-text">Valores ANTES del cambio</p>
+                        <article class="surface-container round padding" style="border-left: 4px solid var(--error);">
+                            <div class="grid">
+                                <div class="s12 m3">
+                                    <p class="tiny-text upper bold">Estado anterior</p>
+                                    <span v-if="historialSeleccionado.Estado_Factura === 'GENERADA'" style="background:#4caf50;color:#fff;font-size:0.70rem;padding:2px 8px;border-radius:10px;font-weight:600;">GENERADA</span>
+                                    <span v-else-if="historialSeleccionado.Estado_Factura === 'AJUSTADA'" style="background:#ff6600;color:#fff;font-size:0.70rem;padding:2px 8px;border-radius:10px;font-weight:600;">AJUSTADA</span>
+                                    <span v-else style="background:var(--surface-variant);font-size:0.70rem;padding:2px 8px;border-radius:10px;font-weight:600;">{ historialSeleccionado.Estado_Factura }}</span>
+                                </div>
+                                <div class="s12 m3">
+                                    <p class="tiny-text upper bold">Valor Factura</p>
+                                    <p class="primary-text bold">{{ formatCOP(historialSeleccionado.Valor_Factura) }}</p>
+                                </div>
+                                <div class="s12 m3">
+                                    <p class="tiny-text upper bold">Valor Impuesto</p>
+                                    <p class="primary-text bold">{{ formatCOP(historialSeleccionado.Valor_Impuesto) }}</p>
+                                </div>
+                                <div class="s12 m3">
+                                    <p class="tiny-text upper bold">Base Cálculo</p>
+                                    <p class="primary-text bold">{{ formatCOP(historialSeleccionado.Base_Calculo) }}</p>
+                                </div>
+                                <div class="s12" v-if="historialSeleccionado.observaciones">
+                                    <p class="tiny-text upper bold">Observaciones anteriores</p>
+                                    <p>{{ historialSeleccionado.observaciones }}</p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <div class="space"></div>
+                        <p class="small-text bold primary-text">Valores DESPUÉS del cambio (factura actual)</p>
+                        <article class="surface-container round padding" style="border-left: 4px solid #4caf50;" v-if="facturaSeleccionada">
+                            <div class="grid">
+                                <div class="s12 m3">
+                                    <p class="tiny-text upper bold">Estado actual</p>
+                                    <span v-if="facturaSeleccionada.Estado_Factura === 'GENERADA'" style="background:#4caf50;color:#fff;font-size:0.70rem;padding:2px 8px;border-radius:10px;font-weight:600;">GENERADA</span>
+                                    <span v-else-if="facturaSeleccionada.Estado_Factura === 'AJUSTADA'" style="background:#ff6600;color:#fff;font-size:0.70rem;padding:2px 8px;border-radius:10px;font-weight:600;">AJUSTADA</span>
+                                    <span v-else style="background:var(--surface-variant);font-size:0.70rem;padding:2px 8px;border-radius:10px;font-weight:600;">{ facturaSeleccionada.Estado_Factura }}</span>
+                                </div>
+                                <div class="s12 m3">
+                                    <p class="tiny-text upper bold">Valor Factura</p>
+                                    <p class="primary-text bold">{{ formatCOP(facturaSeleccionada.Valor_Factura) }}</p>
+                                </div>
+                                <div class="s12 m3">
+                                    <p class="tiny-text upper bold">Valor Impuesto</p>
+                                    <p class="primary-text bold">{{ formatCOP(facturaSeleccionada.Valor_Impuesto) }}</p>
+                                </div>
+                                <div class="s12 m3">
+                                    <p class="tiny-text upper bold">Base Cálculo</p>
+                                    <p class="primary-text bold">{{ formatCOP(facturaSeleccionada.Base_Calculo) }}</p>
+                                </div>
+                                <div class="s12" v-if="facturaSeleccionada.observaciones">
+                                    <p class="tiny-text upper bold">Observaciones actuales</p>
+                                    <p>{{ facturaSeleccionada.observaciones }}</p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <div class="space"></div>
+                        <p class="small-text bold primary-text">Observaciones al momento del cambio</p>
+                        <article class="surface-container round padding">
+                            <p>{{ historialSeleccionado.observaciones || 'Sin observaciones' }}</p>
+                        </article>
+
+                    </div>
+                </article>
+            </div>
+            <!-- FIN DETALLE HISTORIAL -->
+            <!-- FIN HISTORIAL -->
+            <!-- ============================================================ -->
+            <!-- PANTALLA: EDITAR                                             -->
+            <!-- ============================================================ -->
+            <div v-if="pantalla === 'editar'" class="margin">
+                <div class="row">
+                    <h5 class="max primary-text">Editar Factura</h5>
+                    <button class="border" v-on:click="cancelarEdicion">
+                        <i>close</i>
+                        <span>Cancelar</span>
+                    </button>
+                </div>
+                <div class="space"></div>
+
+                <article class="border round">
+                    <div class="primary-container padding">
+                        <div class="row">
+                            <i class="secondary-text">edit_note</i>
+                            <h6 class="secondary-text">{{ formFactura.Numero_Factura }}</h6>
+                        </div>
+                    </div>
+
+                    <div class="padding">
+                        <p class="small-text bold primary-text">Datos Generales</p>
+                        <div class="grid">
+                            <div class="s12 m4">
+                                <div class="field border label">
+                                    <select v-model="formFactura.Sucursal_Emisora">
+                                        <option value="">Seleccione...</option>
+                                        <option value="FEDEX-BOG">FEDEX-BOG - Bogotá</option>
+                                        <option value="FEDEX-CLO">FEDEX-CLO - Cali</option>
+                                        <option value="FEDEX-MDE">FEDEX-MDE - Medellín</option>
+                                    </select>
+                                    <label>Sucursal Emisora <span class="secondary-text">*</span></label>
+                                </div>
+                            </div>
+                            <div class="s12 m4">
+                                <div class="field border label">
+                                    <input type="text" v-model="formFactura.Numero_Factura" maxlength="50">
+                                    <label>Número de Factura <span class="secondary-text">*</span></label>
+                                </div>
+                            </div>
+                            <div class="s12 m4">
+                                <div class="field border label">
+                                    <input type="number" v-model.number="formFactura.Secuencia_Factura" min="1">
+                                    <label>Secuencia</label>
+                                </div>
+                            </div>
+                            <div class="s12 m4">
+                                <div class="field border label">
+                                    <input type="date" v-model="formFactura.Fecha_Emision">
+                                    <label>Fecha de Emisión <span class="secondary-text">*</span></label>
+                                </div>
+                            </div>
+                            <div class="s12 m4">
+                                <div class="field border label">
+                                    <select v-model="formFactura.Tipo_Factura">
+                                        <option value="">Seleccione...</option>
+                                        <option value="SERVICIO">SERVICIO</option>
+                                        <option value="TRANSPORTE">TRANSPORTE</option>
+                                    </select>
+                                    <label>Tipo de Factura <span class="secondary-text">*</span></label>
+                                </div>
+                            </div>
+                            <div class="s12 m4">
+                                <div class="field border label">
+                                    <select v-model="formFactura.Estado_Factura">
+                                        <option value="GENERADA">GENERADA</option>
+                                        <option value="AJUSTADA">AJUSTADA</option>
+                                    </select>
+                                    <label>Estado</label>
+                                </div>
+                            </div>
+                            <div class="s12 m4">
+                                <div class="field border label">
+                                    <select v-model="formFactura.modalidad">
+                                        <option value="">Seleccione...</option>
+                                        <option value="CONTADO">CONTADO</option>
+                                        <option value="CRÉDITO">CRÉDITO</option>
+                                    </select>
+                                    <label>Modalidad <span class="secondary-text">*</span></label>
+                                </div>
+                            </div>
+                            <div class="s12 m4">
+                                <div class="field border label">
+                                    <select v-model="formFactura.Tipo_Servicio">
+                                        <option value="">Seleccione...</option>
+                                        <option value="ENVÍO">ENVÍO</option>
+                                        <option value="TRANSPORTE">TRANSPORTE</option>
+                                        <option value="ALMACENAMIENTO">ALMACENAMIENTO</option>
+                                    </select>
+                                    <label>Tipo de Servicio <span class="secondary-text">*</span></label>
+                                </div>
+                            </div>
+                            <div class="s12 m4">
+                                <div class="field border label">
+                                    <input type="text" v-model="formFactura.Codigo_Ean_Fedex" maxlength="50">
+                                    <label>Código EAN FEDEX</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="space"></div>
+                        <p class="small-text bold primary-text">Valores e Impuestos</p>
+                        <div class="grid">
+                            <div class="s12 m6">
+                                <div class="field border label">
+                                    <input type="number" v-model.number="formFactura.Valor_Factura"
+                                           step="0.01" min="0" v-on:input="calcularImpuesto">
+                                    <label>Valor Factura <span class="secondary-text">*</span></label>
+                                    <span class="helper">En COP</span>
+                                </div>
+                            </div>
+                            <div class="s12 m6">
+                                <div class="field border label">
+                                    <input type="number" v-model.number="formFactura.Base_Calculo"
+                                           step="0.01" min="0" v-on:input="calcularImpuesto">
+                                    <label>Base de Cálculo</label>
+                                </div>
+                            </div>
+                            <div class="s12 m6">
+                                <div class="field border label">
+                                    <input type="number" v-model.number="formFactura.Porcentaje_Impuesto"
+                                           step="0.01" min="0" max="100" v-on:input="calcularImpuesto">
+                                    <label>Porcentaje Impuesto (%)</label>
+                                </div>
+                            </div>
+                            <div class="s12 m6">
+                                <div class="field border label">
+                                    <input type="number" v-model.number="formFactura.Valor_Impuesto"
+                                           step="0.01" min="0" readonly>
+                                    <label>Valor Impuesto (calculado)</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="space"></div>
+                        <div class="field border label">
+                            <textarea v-model="formFactura.observaciones" rows="3"></textarea>
+                            <label>Observaciones</label>
+                        </div>
+
+                        <div class="space"></div>
+                        <div class="field border label">
+                            <input type="text" v-model="formFactura.Motivo_Cambio" maxlength="300">
+                            <label>Motivo del Cambio <span class="secondary-text">* Obligatorio</span></label>
+                            <span class="helper">Se guardará en el historial de la factura</span>
+                        </div>
+
+                        <div class="space"></div>
+                        <article class="surface-container round padding">
+                            <h6 class="primary-text">Resumen</h6>
+                            <div class="divider"></div>
+                            <div class="space"></div>
+                            <div class="row space-between">
+                                <span>Valor Factura:</span>
+                                <span class="bold">{{ formatCOP(formFactura.Valor_Factura) }}</span>
+                            </div>
+                            <div class="row space-between">
+                                <span>Impuesto ({{ formFactura.Porcentaje_Impuesto }}%):</span>
+                                <span class="bold">{{ formatCOP(formFactura.Valor_Impuesto) }}</span>
+                            </div>
+                            <div class="divider"></div>
+                            <div class="row space-between">
+                                <h6 class="primary-text">TOTAL:</h6>
+                                <h6 class="secondary-text">{{ formatCOP(valorTotal) }}</h6>
+                            </div>
+                        </article>
+
+                        <div class="space"></div>
+                        <nav class="space-between">
+                            <button class="border" v-on:click="cancelarEdicion" v-bind:disabled="guardando">
+                                Cancelar
+                            </button>
+                            <button class="secondary" v-on:click="guardarFactura"
+                                    v-bind:disabled="guardando || !formValido">
+                                <i>{{ guardando ? 'hourglass_empty' : 'save' }}</i>
+                                <span>{{ guardando ? 'Guardando...' : 'GUARDAR CAMBIOS' }}</span>
+                            </button>
+                        </nav>
+                        <div class="large-space"></div>
+                    </div>
+                </article>
+            </div>
+            <!-- FIN EDITAR -->
+
+        </main>
+
+        <!-- Snackbar -->
+        <div class="snackbar" v-bind:class="['snackbar', snackbar.tipo, { active: snackbar.mostrar }]">
+            <i>{{ snackbar.icono }}</i>
+            <span>{{ snackbar.mensaje }}</span>
+        </div>
+
+    </div>
+
+    <script src="./lista-facturas.js"></script>
+
+</body>
+</html>

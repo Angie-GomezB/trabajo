@@ -47,8 +47,17 @@
     "Facturas_BCA": {
         templateUrl: "./web/facturas_bca/facturas.html",
         jsUrl: "./web/facturas_bca/facturas.js",
-        title: "Facturas",
+        title: "Crear Facturas",
         desc: "Crear y gestionar facturas",
+        imgSrc: "",
+        zone: "BCA",
+        allow: ["*"]
+    },
+    "Lista_Facturas_BCA": {
+        templateUrl: "./web/facturas_bca/lista_facturas.html",
+        jsUrl: "./web/facturas_bca/lista_facturas.js",
+        title: "Pantalla Facturas",
+        desc: "Listado y gestión de facturas",
         imgSrc: "",
         zone: "BCA",
         allow: ["*"]

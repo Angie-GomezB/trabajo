@@ -3,6 +3,9 @@
 
     data() {
         return {
+            // Usuario
+            sucursalNombre: 'FEDEX-BOG - Bogotá',
+
             pantalla: 'buscar',
             pantallaAnterior: 'buscar',
             filtroIdFiscal: '',
@@ -13,11 +16,13 @@
             cargando: false,
             cargandoTodos: false,
             guardando: false,
+
             // ── Scroll infinito ──────────────────────────────────────────
             paginaVisible: 1,       // cuántas "páginas" de 20 se muestran
             tamanioPagina: 20,      // registros por lote
             cargandoMas: false,     // indicador de carga dentro de la tabla
             // ─────────────────────────────────────────────────────────────
+
             form: {
                 Id_Cliente: null,
                 Id_Fiscal: '',

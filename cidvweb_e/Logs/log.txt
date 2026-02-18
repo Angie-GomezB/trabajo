@@ -944,3 +944,129 @@ Vals: 4|FEDEX-CLO|FAC-004|1|2026-02-03|60000|11400.00|60000|19|TRANSPORTE|CONTAD
 2026-02-17 10:58:58	WebBDUt(1033) init. UseCache:False
 2026-02-17 11:32:12	INIT
 2026-02-17 11:32:12	WebBDUt(1033) init. UseCache:False
+2026-02-18 08:52:30	INIT
+2026-02-18 08:52:30	WebBDUt(1033) init. UseCache:False
+2026-02-18 10:44:19	INIT
+2026-02-18 10:44:19	WebBDUt(1033) init. UseCache:False
+2026-02-18 10:45:25	INIT
+2026-02-18 10:45:25	WebBDUt(1033) init. UseCache:False
+2026-02-18 10:48:58	Error al convertir el valor del parámetro de String a Int32.
+SP: Facturas/Get_Facturas
+Pars: @Id_Cliente|@Usuario|
+Vals: |administrador|
+2026-02-18 10:58:02	Error al convertir el valor del parámetro de String a Int32.
+SP: Facturas/Get_Facturas
+Pars: @Id_Cliente|@Usuario|
+Vals: |administrador|
+2026-02-18 11:06:32	INIT
+2026-02-18 11:06:32	WebBDUt(1033) init. UseCache:False
+2026-02-18 11:06:41	Error al convertir el valor del parámetro de String a Int32.
+SP: Facturas/Get_Facturas
+Pars: @Id_Cliente|@Usuario|
+Vals: |administrador|
+2026-02-18 11:17:40	INIT
+2026-02-18 11:17:40	WebBDUt(1033) init. UseCache:False
+2026-02-18 11:23:55	Error al convertir el valor del parámetro de String a Int32.
+SP: Facturas/Get_Facturas
+Pars: @Id_Cliente|@Usuario|
+Vals: |administrador|
+2026-02-18 11:32:09	Error al convertir el valor del parámetro de String a Int32.
+SP: Facturas/Get_Facturas
+Pars: @Id_Cliente|@Usuario|
+Vals: |administrador|
+2026-02-18 11:33:09	Must declare the scalar variable "@Id_Cliente".
+SP: Facturas/Get_Facturas
+Pars: @Usuario|
+Vals: administrador|
+2026-02-18 11:33:12	Must declare the scalar variable "@Id_Cliente".
+SP: Facturas/Get_Facturas
+Pars: @Usuario|
+Vals: administrador|
+2026-02-18 11:33:23	Must declare the scalar variable "@Id_Cliente".
+SP: Facturas/Get_Facturas
+Pars: @Usuario|
+Vals: administrador|
+2026-02-18 11:49:11	Must declare the scalar variable "@Id_Cliente".
+SP: Facturas/Get_Facturas
+Pars: @Usuario|
+Vals: administrador|
+2026-02-18 11:49:24	Must declare the scalar variable "@Id_Cliente".
+SP: Facturas/Get_Facturas
+Pars: @Usuario|
+Vals: administrador|
+2026-02-18 12:07:33	Must declare the scalar variable "@Id_Cliente".
+SP: Facturas/Get_Facturas
+Pars: @Usuario|
+Vals: administrador|
+2026-02-18 12:07:40	Must declare the scalar variable "@Id_Cliente".
+SP: Facturas/Get_Facturas
+Pars: @Usuario|
+Vals: administrador|
+2026-02-18 12:10:59	INIT
+2026-02-18 12:10:59	WebBDUt(1033) init. UseCache:False
+2026-02-18 12:18:03	Must declare the scalar variable "@Id_Cliente".
+SP: Facturas/Get_Facturas
+Pars: @Usuario|
+Vals: administrador|
+2026-02-18 12:20:54	Must declare the scalar variable "@Id_Cliente".
+SP: Facturas/Get_Facturas
+Pars: @Usuario|
+Vals: administrador|
+2026-02-18 02:23:14	INIT
+2026-02-18 02:23:14	WebBDUt(1033) init. UseCache:False
+2026-02-18 02:31:27	Must declare the scalar variable "@Id_Cliente".
+SP: Facturas/Get_Facturas
+Pars: @Usuario|
+Vals: administrador|
+2026-02-18 02:31:36	Must declare the scalar variable "@Id_Cliente".
+SP: Facturas/Get_Facturas
+Pars: @Usuario|
+Vals: administrador|
+2026-02-18 02:41:45	Could not find file 'C:\Users\asus\Desktop\SERLEFIN\cidvweb_e\cidvweb_e\SQL\Facturas\Get_Todas_Las_Facturas.sql'.
+SP: Facturas/Get_Todas_Las_Facturas
+Pars: @Usuario|
+Vals: administrador|
+2026-02-18 02:42:11	Could not find file 'C:\Users\asus\Desktop\SERLEFIN\cidvweb_e\cidvweb_e\SQL\Facturas\Get_Todas_Las_Facturas.sql'.
+SP: Facturas/Get_Todas_Las_Facturas
+Pars: @Usuario|
+Vals: administrador|
+2026-02-18 02:42:41	Could not find file 'C:\Users\asus\Desktop\SERLEFIN\cidvweb_e\cidvweb_e\SQL\Facturas\Get_Todas_Las_Facturas.sql'.
+SP: Facturas/Get_Todas_Las_Facturas
+Pars: @Usuario|
+Vals: administrador|
+2026-02-18 02:42:57	Could not find file 'C:\Users\asus\Desktop\SERLEFIN\cidvweb_e\cidvweb_e\SQL\Facturas\Get_Todas_Las_Facturas.sql'.
+SP: Facturas/Get_Todas_Las_Facturas
+Pars: @Usuario|
+Vals: administrador|
+2026-02-18 02:43:17	Could not find file 'C:\Users\asus\Desktop\SERLEFIN\cidvweb_e\cidvweb_e\SQL\Facturas\Get_Todas_Las_Facturas.sql'.
+SP: Facturas/Get_Todas_Las_Facturas
+Pars: @Usuario|
+Vals: administrador|
+2026-02-18 02:45:54	ExecuteReader: no se ha inicializado la propiedad CommandText
+SP: Facturas/Get_Todas_Las_Facturas
+Pars: @Usuario|
+Vals: administrador|
+2026-02-18 02:46:35	Could not find file 'C:\Users\asus\Desktop\SERLEFIN\cidvweb_e\cidvweb_e\SQL\Facturas\Get_Factura_Id.sql'.
+SP: Facturas/Get_Factura_Id
+Pars: @Id_Factura|
+Vals: 7|
+2026-02-18 02:48:50	Could not find file 'C:\Users\asus\Desktop\SERLEFIN\cidvweb_e\cidvweb_e\SQL\Facturas\Get_Factura_Id.sql'.
+SP: Facturas/Get_Factura_Id
+Pars: @Id_Factura|
+Vals: 7|
+2026-02-18 02:51:57	Could not find file 'C:\Users\asus\Desktop\SERLEFIN\cidvweb_e\cidvweb_e\SQL\Facturas\Get_Factura_Id.sql'.
+SP: Facturas/Get_Factura_Id
+Pars: @Id_Factura|
+Vals: 7|
+2026-02-18 02:55:43	Could not find file 'C:\Users\asus\Desktop\SERLEFIN\cidvweb_e\cidvweb_e\SQL\Facturas\Get_Factura_Id.sql'.
+SP: Facturas/Get_Factura_Id
+Pars: @Id_Factura|
+Vals: 7|
+2026-02-18 02:55:53	Could not find file 'C:\Users\asus\Desktop\SERLEFIN\cidvweb_e\cidvweb_e\SQL\Facturas\Get_Factura_Id.sql'.
+SP: Facturas/Get_Factura_Id
+Pars: @Id_Factura|
+Vals: 7|
+2026-02-18 03:02:10	Could not find file 'C:\Users\asus\Desktop\SERLEFIN\cidvweb_e\cidvweb_e\SQL\Facturas\Get_Factura_Id.sql'.
+SP: Facturas/Get_Factura_Id
+Pars: @Id_Factura|
+Vals: 7|

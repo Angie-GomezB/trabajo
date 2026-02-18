@@ -33,15 +33,13 @@
                 </div>
                 <p class="tiny-text no-margin white-text" style="position: absolute; right: 80px; top: 50%; transform: translateY(-50%);">{{ sucursalNombre }}</p>
             </nav>
-
-            
         </header>
 
         <main class="responsive">
             <div class="large-space"></div>
 
             <!-- ======================================================
-                 PAGE HEADER + WIZARD STEPS
+                 PAGE HEADER
             ====================================================== -->
             <div class="margin">
                 <div class="row">
@@ -52,41 +50,12 @@
                     </button>
                 </div>
                 <p>Emisión de factura de transporte</p>
-                <div class="space"></div>
-
-                <!-- Wizard Steps -->
-                <article class="border round">
-                    <div class="row no-wrap scroll padding" style="gap: 1rem;">
-                        <div v-for="(step, idx) in steps" :key="idx"
-                             class="center-align"
-                             style="min-width: 120px; cursor: pointer;"
-                             @click="puedeIrAPaso(idx) ? (pasoActual = idx) : null">
-                            <div class="row">
-                                <div class="circle"
-                                     :class="{
-                                     'primary' : pasoActual===idx,
-                                     'green' : idx < pasoActual,
-                                     'surface': idx > pasoActual
-                                 }">
-                                <i v-if="idx < pasoActual">check</i>
-                                <span v-else>{{ idx + 1 }}</span>
-                            </div>
-                                <div class="max" style="height: 2px; margin-top: 1.5rem;"
-                                     :class="{ 'primary': idx < steps.length - 1 && idx < pasoActual, 'surface': idx >= pasoActual }">
-                                </div>
-                            </div>
-                            <p class="small-text" :class="{ 'primary-text bold': pasoActual === idx }">
-                                {{ step.titulo }}
-                            </p>
-                        </div>
-                    </div>
-                </article>
             </div>
 
             <!-- ======================================================
-                 PASO 1: CLIENTE
+                 SECCIÓN 1: CLIENTE
             ====================================================== -->
-            <div v-if="pasoActual === 0" class="margin">
+            <div class="margin">
                 <article class="border round">
                     <div class="primary-container padding">
                         <div class="row">
@@ -95,7 +64,7 @@
                         </div>
                     </div>
 
-                    <!-- Cliente ya seleccionado desde módulo anterior -->
+                    <!-- Cliente ya seleccionado -->
                     <div v-if="clienteSeleccionado" class="padding">
                         <article class="surface-container round padding">
                             <div class="grid">
@@ -117,26 +86,85 @@
                                 </div>
                             </div>
                         </article>
-
                         <div class="space"></div>
-                        <nav class="right-align">
-                            <button class="secondary" @click="siguientePaso">
-                                <span>SIGUIENTE</span>
-                                <i>arrow_forward</i>
-                            </button>
-                        </nav>
+                        <button class="border" @click="limpiarCliente">
+                            <i>swap_horiz</i>
+                            <span>Cambiar Cliente</span>
+                        </button>
                     </div>
 
-                    <!-- Buscar cliente si no hay ninguno -->
+                    <!-- =====================================================
+                         BUSCAR CLIENTE — Dropdown tipo BeerCSS con sugerencias
+                    ====================================================== -->
                     <div v-else class="padding">
-                        <div class="field border label">
+
+                        <div class="field large prefix round fill" style="position: relative;">
+                            <i class="front">search</i>
                             <input type="text"
                                    v-model="busquedaIdFiscal"
+                                   @input="onInputIdFiscal"
+                                   @focus="onFocusIdFiscal"
+                                   @blur="onBlurIdFiscal"
                                    @keyup.enter="buscarCliente"
-                                   maxlength="20">
-                            <label>ID Fiscal del Cliente <span class="secondary-text">* Obligatorio</span></label>
+                                   maxlength="20"
+                                   placeholder="Escriba el ID Fiscal del cliente..."
+                                   autocomplete="off">
+
+                            <!-- Estado: cargando sugerencias -->
+                            <menu class="min" v-if="mostrarSugerencias && cargandoSugerencias" style="position: absolute; top: 100%; bottom: auto !important; z-index: 999;">
+                                <li class="transparent">
+                                    <div class="row padding">
+                                        <i class="secondary-text">hourglass_empty</i>
+                                        <span class="secondary-text">Buscando coincidencias...</span>
+                                    </div>
+                                </li>
+                            </menu>
+
+                            <!-- Estado: sugerencias encontradas -->
+                            <menu class="min" v-else-if="mostrarSugerencias && sugerenciasFiltradas.length > 0" style="position: absolute; top: 100%; bottom: auto !important; z-index: 999;">
+
+                                <!-- Encabezado con el texto actual -->
+                                <li class="transparent">
+                                    <div class="field large prefix">
+                                        <i class="front">badge</i>
+                                        <input :value="'Resultados para: ' + busquedaIdFiscal" disabled>
+                                    </div>
+                                </li>
+
+                                <!-- Cada sugerencia -->
+                                <li v-for="item in sugerenciasFiltradas"
+                                    :key="item.Id_Fiscal"
+                                    @mousedown.prevent="seleccionarSugerencia(item)"
+                                    style="cursor: pointer;">
+                                    <i>person_search</i>
+                                    <div>
+                                        <span class="bold">{{ item.Id_Fiscal }}</span>
+                                        <span v-if="item.nombre" class="secondary-text"> — {{ item.nombre }}</span>
+                                    </div>
+                                </li>
+
+                                <!-- Aviso de más resultados -->
+                                <li v-if="hayMasSugerencias" class="transparent">
+                                    <p class="tiny-text center-align secondary-text no-margin padding">
+                                        <i style="font-size:14px; vertical-align:middle;">info</i>
+                                        Mostrando los primeros {{ maxSugerencias }} resultados. Escriba más para refinar.
+                                    </p>
+                                </li>
+                            </menu>
+
+                            <!-- Estado: sin resultados -->
+                            <menu class="min" v-else-if="mostrarSugerencias && !cargandoSugerencias && busquedaIdFiscal.trim().length > 0" style="position: absolute; top: 100%; bottom: auto !important; z-index: 999;">
+                                <li class="transparent">
+                                    <div class="row padding">
+                                        <i class="secondary-text">search_off</i>
+                                        <span class="secondary-text">No se encontraron clientes con ese ID</span>
+                                    </div>
+                                </li>
+                            </menu>
                         </div>
+
                         <div class="space"></div>
+
                         <button class="secondary" @click="buscarCliente" :disabled="buscando || !busquedaIdFiscal.trim()">
                             <i>{{ buscando ? 'hourglass_empty' : 'search' }}</i>
                             <span>{{ buscando ? 'Buscando...' : 'BUSCAR CLIENTE' }}</span>
@@ -146,9 +174,9 @@
             </div>
 
             <!-- ======================================================
-                 PASO 2: DATOS FACTURA
+                 SECCIÓN 2: DATOS FACTURA
             ====================================================== -->
-            <div v-if="pasoActual === 1" class="margin">
+            <div class="margin">
                 <article class="border round">
                     <div class="primary-container padding">
                         <div class="row">
@@ -245,26 +273,14 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="space"></div>
-                        <nav class="space-between">
-                            <button class="border" @click="pasoAnterior">
-                                <i>arrow_back</i>
-                                <span>ATRÁS</span>
-                            </button>
-                            <button class="secondary" @click="siguientePaso" :disabled="!paso2Valido">
-                                <span>SIGUIENTE</span>
-                                <i>arrow_forward</i>
-                            </button>
-                        </nav>
                     </div>
                 </article>
             </div>
 
             <!-- ======================================================
-                 PASO 3: VALORES
+                 SECCIÓN 3: VALORES
             ====================================================== -->
-            <div v-if="pasoActual === 2" class="margin">
+            <div class="margin">
                 <article class="border round">
                     <div class="primary-container padding">
                         <div class="row">
@@ -342,112 +358,25 @@
                                 <h6 class="secondary-text">{{ formatCOP(valorTotal) }}</h6>
                             </div>
                         </article>
-
-                        <div class="space"></div>
-                        <nav class="space-between">
-                            <button class="border" @click="pasoAnterior">
-                                <i>arrow_back</i>
-                                <span>ATRÁS</span>
-                            </button>
-                            <button class="secondary" @click="siguientePaso" :disabled="!paso3Valido">
-                                <span>SIGUIENTE</span>
-                                <i>arrow_forward</i>
-                            </button>
-                        </nav>
                     </div>
                 </article>
             </div>
 
             <!-- ======================================================
-                 PASO 4: CONFIRMAR
+                 BOTONES FINALES
             ====================================================== -->
-            <div v-if="pasoActual === 3" class="margin">
-                <article class="border round">
-                    <div class="primary-container padding">
-                        <div class="row">
-                            <i class="secondary-text">check_circle</i>
-                            <h6 class="secondary-text">Confirmar Factura</h6>
-                        </div>
-                    </div>
-
-                    <div class="padding">
-                        <!-- Cliente -->
-                        <p class="small-text bold primary-text">Cliente</p>
-                        <article class="surface-container round padding">
-                            <div class="grid">
-                                <div class="s12 m4">
-                                    <p class="tiny-text">ID Fiscal</p>
-                                    <p class="bold">{{ clienteSeleccionado.Id_Fiscal }}</p>
-                                </div>
-                                <div class="s12 m8">
-                                    <p class="tiny-text">Nombre</p>
-                                    <p class="bold">{{ nombreCompletoCliente(clienteSeleccionado) }}</p>
-                                </div>
-                            </div>
-                        </article>
-
-                        <div class="space"></div>
-
-                        <!-- Datos de la Factura -->
-                        <p class="small-text bold primary-text">Datos de la Factura</p>
-                        <article class="surface-container round padding">
-                            <div class="grid">
-                                <div class="s12 m3">
-                                    <p class="tiny-text">Número:</p>
-                                    <p>{{ factura.Numero_Factura }}</p>
-                                </div>
-                                <div class="s12 m3">
-                                    <p class="tiny-text">Sucursal:</p>
-                                    <p>{{ factura.Sucursal_Emisora }}</p>
-                                </div>
-                                <div class="s12 m3">
-                                    <p class="tiny-text">Fecha:</p>
-                                    <p>{{ factura.Fecha_Emision }}</p>
-                                </div>
-                                <div class="s12 m3">
-                                    <p class="tiny-text">Tipo:</p>
-                                    <p>{{ factura.Tipo_Factura }}</p>
-                                </div>
-                            </div>
-                        </article>
-
-                        <div class="space"></div>
-
-                        <!-- Resumen Final -->
-                        <article class="primary-container round padding">
-                            <h6 class="secondary-text">Resumen Final</h6>
-                            <div class="divider"></div>
-                            <div class="space"></div>
-                            <div class="row space-between">
-                                <span>Valor Factura:</span>
-                                <span class="bold">{{ formatCOP(factura.Valor_Factura) }}</span>
-                            </div>
-                            <div class="row space-between">
-                                <span>Impuesto ({{ factura.Porcentaje_Impuesto }}%):</span>
-                                <span class="bold">{{ formatCOP(factura.Valor_Impuesto) }}</span>
-                            </div>
-                            <div class="space"></div>
-                            <article class="secondary round padding">
-                                <div class="row space-between">
-                                    <h5 class="white-text">TOTAL:</h5>
-                                    <h5 class="white-text">{{ formatCOP(valorTotal) }}</h5>
-                                </div>
-                            </article>
-                        </article>
-
-                        <div class="space"></div>
-                        <nav class="space-between">
-                            <button class="border" @click="pasoAnterior">
-                                <i>arrow_back</i>
-                                <span>ATRÁS</span>
-                            </button>
-                            <button class="secondary" @click="emitirFactura" :disabled="emitiendo">
-                                <i>{{ emitiendo ? 'hourglass_empty' : 'check' }}</i>
-                                <span>{{ emitiendo ? 'EMITIENDO...' : 'EMITIR FACTURA' }}</span>
-                            </button>
-                        </nav>
-                    </div>
-                </article>
+            <div class="margin">
+                <nav class="space-between">
+                    <button class="border" @click="cancelar">
+                        <i>close</i>
+                        <span>CANCELAR</span>
+                    </button>
+                    <button class="secondary" @click="emitirFactura" :disabled="emitiendo || !formularioValido">
+                        <i>{{ emitiendo ? 'hourglass_empty' : 'check' }}</i>
+                        <span>{{ emitiendo ? 'EMITIENDO...' : 'EMITIR FACTURA' }}</span>
+                    </button>
+                </nav>
+                <div class="large-space"></div>
             </div>
 
         </main>

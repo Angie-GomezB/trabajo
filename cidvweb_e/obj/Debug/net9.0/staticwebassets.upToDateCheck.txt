@@ -43,9 +43,9 @@ wwwroot\web\cidv\cuentas.html
 wwwroot\web\cidv\cuentas.js
 wwwroot\web\cidv\informes.html
 wwwroot\web\cidv\informes.js
-wwwroot\web\clientes_bca\clientes.js
-wwwroot\web\facturas_bca\facturas.html
-wwwroot\web\facturas_bca\facturas.js
+wwwroot\web\clientes_bca\clientes.html
+wwwroot\web\facturas_bca\lista_Facturas.html
+wwwroot\web\facturas_bca\lista_Facturas.js
 wwwroot\web\informes\cargues.html
 wwwroot\web\informes\cargues.js
 wwwroot\web\informes\informes.html
@@ -54,7 +54,9 @@ wwwroot\web\trm\trm.html
 wwwroot\web\trm\trm.js
 wwwroot\web\users\users.html
 wwwroot\web\users\users.js
-wwwroot\web\clientes_bca\clientes.html
+wwwroot\web\clientes_bca\clientes.js
+wwwroot\web\facturas_bca\facturas.html
+wwwroot\web\facturas_bca\facturas.js
 C:\Users\asus\Desktop\SERLEFIN\cidvweb_e\cidvweb_e\wwwroot\css\lib\beer.min.css
 C:\Users\asus\Desktop\SERLEFIN\cidvweb_e\cidvweb_e\wwwroot\css\own\colors.css
 C:\Users\asus\Desktop\SERLEFIN\cidvweb_e\cidvweb_e\wwwroot\css\own\landing.css
@@ -84,9 +86,9 @@ C:\Users\asus\Desktop\SERLEFIN\cidvweb_e\cidvweb_e\wwwroot\web\cidv\cuentas.html
 C:\Users\asus\Desktop\SERLEFIN\cidvweb_e\cidvweb_e\wwwroot\web\cidv\cuentas.js
 C:\Users\asus\Desktop\SERLEFIN\cidvweb_e\cidvweb_e\wwwroot\web\cidv\informes.html
 C:\Users\asus\Desktop\SERLEFIN\cidvweb_e\cidvweb_e\wwwroot\web\cidv\informes.js
-C:\Users\asus\Desktop\SERLEFIN\cidvweb_e\cidvweb_e\wwwroot\web\clientes_bca\clientes.js
-C:\Users\asus\Desktop\SERLEFIN\cidvweb_e\cidvweb_e\wwwroot\web\facturas_bca\facturas.html
-C:\Users\asus\Desktop\SERLEFIN\cidvweb_e\cidvweb_e\wwwroot\web\facturas_bca\facturas.js
+C:\Users\asus\Desktop\SERLEFIN\cidvweb_e\cidvweb_e\wwwroot\web\clientes_bca\clientes.html
+C:\Users\asus\Desktop\SERLEFIN\cidvweb_e\cidvweb_e\wwwroot\web\facturas_bca\lista_Facturas.html
+C:\Users\asus\Desktop\SERLEFIN\cidvweb_e\cidvweb_e\wwwroot\web\facturas_bca\lista_Facturas.js
 C:\Users\asus\Desktop\SERLEFIN\cidvweb_e\cidvweb_e\wwwroot\web\informes\cargues.html
 C:\Users\asus\Desktop\SERLEFIN\cidvweb_e\cidvweb_e\wwwroot\web\informes\cargues.js
 C:\Users\asus\Desktop\SERLEFIN\cidvweb_e\cidvweb_e\wwwroot\web\informes\informes.html
@@ -95,4 +97,6 @@ C:\Users\asus\Desktop\SERLEFIN\cidvweb_e\cidvweb_e\wwwroot\web\trm\trm.html
 C:\Users\asus\Desktop\SERLEFIN\cidvweb_e\cidvweb_e\wwwroot\web\trm\trm.js
 C:\Users\asus\Desktop\SERLEFIN\cidvweb_e\cidvweb_e\wwwroot\web\users\users.html
 C:\Users\asus\Desktop\SERLEFIN\cidvweb_e\cidvweb_e\wwwroot\web\users\users.js
-C:\Users\asus\Desktop\SERLEFIN\cidvweb_e\cidvweb_e\wwwroot\web\clientes_bca\clientes.html
+C:\Users\asus\Desktop\SERLEFIN\cidvweb_e\cidvweb_e\wwwroot\web\clientes_bca\clientes.js
+C:\Users\asus\Desktop\SERLEFIN\cidvweb_e\cidvweb_e\wwwroot\web\facturas_bca\facturas.html
+C:\Users\asus\Desktop\SERLEFIN\cidvweb_e\cidvweb_e\wwwroot\web\facturas_bca\facturas.js

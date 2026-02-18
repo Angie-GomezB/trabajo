@@ -34,15 +34,14 @@
         </header>
 
         <main class="responsive">
-            <div style="height: 12px;"></div>
 
             <!-- ============================================================ -->
             <!-- PANTALLA: GESTIÓN DE CLIENTES (principal - antes "buscar")   -->
             <!-- ============================================================ -->
-            <div v-if="pantalla === 'buscar'" class="margin" style="margin-top: 0; margin-bottom: 0;">
-                <div class="row" style="margin-bottom: 6px;">
+            <div v-if="pantalla === 'buscar'" class="margin" style="margin-top: 4px; margin-bottom: 0;">
+                <div class="row" style="margin-bottom: 4px;">
                     <div class="max">
-                        <h5 class="primary-text" style="margin: 0 0 2px 0;">Gestión de Clientes</h5>
+                        <h5 class="primary-text" style="margin: 0 0 1px 0;">Gestión de Clientes</h5>
                         <p class="no-margin" style="margin: 0; font-size: 0.85rem;">Búsqueda y registro de clientes</p>
                     </div>
                     <button class="secondary" @click="abrirFormularioNuevo" v-bind:disabled="cargandoTodos">
@@ -52,7 +51,7 @@
                 </div>
 
                 <!-- Tabla con filtros en encabezados -->
-                <article class="border round">
+                <article class="border round" style="overflow: hidden;">
 
                     <!-- Loading inicial -->
                     <div v-if="cargandoTodos" class="center-align padding">
@@ -74,13 +73,22 @@
 
                         <div v-else>
                             <!-- Tabla con scroll interno -->
+                            <!--
+                                calc breakdown:
+                                  100vh         = altura total de la pantalla
+                                  - 74px        = header (nav con logo)
+                                  - 4px         = margin-top del div buscar
+                                  - 52px        = fila titulo + boton "Nuevo Cliente"
+                                  - 4px         = margin-bottom de esa fila
+                                  - 2px         = border top del article
+                                  - 36px        = pie de tabla "Mostrando X de Y"
+                            -->
                             <div id="tablaClientesScroll"
-                                 style="max-height: calc(100vh - 175px); overflow-y: auto;"
+                                 style="max-height: calc(100vh - 172px); overflow-y: auto;"
                                  @scroll="onScrollTabla">
                                 <table class="border" style="width:100%;">
                                     <thead style="position: sticky; top: 0; z-index: 10; background: var(--surface);">
                                         <tr>
-                                            <!-- Encabezado ID Fiscal con filtro -->
                                             <th style="min-width:150px; padding: 4px 8px;">
                                                 <div class="field border no-margin" style="margin:0;">
                                                     <input type="text"
@@ -91,7 +99,6 @@
                                                            style="height:28px; font-size:0.80rem; padding: 3px 8px;">
                                                 </div>
                                             </th>
-                                            <!-- Encabezado Nombre con filtro -->
                                             <th style="min-width:210px; padding: 4px 8px;">
                                                 <div class="field border no-margin" style="margin:0;">
                                                     <input type="text"
@@ -160,7 +167,7 @@
                             </div>
 
                             <!-- Pie de tabla: contador -->
-                            <div class="padding" style="padding-top:8px; padding-bottom:8px;">
+                            <div class="padding" style="padding-top:6px; padding-bottom:6px;">
                                 <p class="tiny-text" style="margin:0; color: var(--on-surface-variant);">
                                     Mostrando <strong>{{ clientesVisibles.length }}</strong> de <strong>{{ clientesFiltrados.length }}</strong> clientes
                                     <span v-if="filtroIdFiscal.trim() || filtroNombre.trim()"> (filtrados)</span>
@@ -171,7 +178,6 @@
                 </article>
             </div>
             <!-- FIN PANTALLA BUSCAR -->
-
             <!-- PANTALLA: CLIENTE ENCONTRADO -->
             <div v-if="pantalla === 'encontrado' && clienteActual" class="margin">
                 <h5 class="primary-text">Cliente Encontrado</h5>
@@ -374,7 +380,6 @@
                                 <div class="field filled label">
                                     <input type="text" v-model="form.Nm_Cliente1" maxlength="150">
                                     <label>Primer Nombre <span class="secondary-text">*</span></label>
-
                                 </div>
                             </div>
                             <div class="s12 m6">
