@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <link href="./img/ico/ico-serlefin.png" rel="Shortcut Icon" type="image/png" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./css/lib/beer.min.css" rel="stylesheet">
+    <script type="module" src="./js/lib/beer.min.js"></script>
+    <script type="module" src="./js/lib/material-dynamic-colors.min.js"></script>
+    <link href="./css/own/colors.css?v=1" rel="stylesheet">
+    <link href="./css/own/main.css?v=2" rel="stylesheet">
+    <script src="./js/lib/vue.global.js"></script>
+    <script src="./js/lib/axios.min.js"></script>
+    <script src="./js/own/axios-helper.js?v=1"></script>
+    <script src="./js/lib/jszip.js"></script>
+    <script src="./js/lib/xlsx.js"></script>
+    <script src="./js/lib/socket.io.min.js"></script>
+</head>
+<body>
+    <div id="indexMainDiv" style="display:none">
+        <div style="min-height: 100vh; background-image: url('./img/background/34378469_v915-mynt-001-a.svg'); background-attachment: fixed; background-repeat: no-repeat; background-size: cover;">
+            <dialog class="left active" style="width: 4.2rem; min-inline-size: 4.2rem; padding: 0px; text-align:center">
+                <br />
+                <button class="border circle medium primary-border primary-text" v-on:click="loadModule('Index')">
+                    {{username.substring(0,1).toUpperCase()}}
+                    <div class="tooltip bottom">{{username}}</div>
+                </button>
+                <br />
+                <br />
+                <br />
+                <br />
+                <div v-for="(item, key) in visibleZones">
+                    <button class="circle" v-on:click="handleClick(item)" v-bind:class="{active: zonePreSelected == item, transparent: zonePreSelected != item}">
+                        <i>{{item.img}}</i>
+                    </button>
+                    <span>{{key}}</span>
+                </div>
+                <div class="absolute bottom">
+                    <button class="circle transparent" v-on:click="logOut">
+                        <i>logout</i>
+                    </button>
+                    <span>Cerrar</span>
+                    <br />
+                    <br />
+                </div>
+
+            </dialog>
+            <dialog class="left" v-bind:class="{'active': showModuleMenu}" style="left:4.2rem;">
+                <header v-if="zonePreSelected != null">
+                    <nav>
+                        <button class="circle transparent " v-on:click="closeMenu()">
+                            <i>arrow_back</i>
+                        </button>
+                        <h6 class="max">{{zonePreSelected.title}}</h6>
+                    </nav>
+                </header>
+                <div>
+                    <ul class="list border">
+                        <li v-for="item in visibleModules"
+                            v-on:click="loadModule(item.key, null);">
+                            {{item.value.title}}
+                        </li>
+                    </ul>
+                </div>
+            </dialog>
+            <div class="sidecontent">
+                <div class="grid no-space">
+                    <div class="s12 m12 l1"></div>
+                    <div class="s12 m12 l10">
+                        <div id="indexMenuDiv" style="display: none; min-height: calc(100vh - 2rem);">
+                            <div class="padding absolute center top center-align">
+                                <br />
+                                <br />
+                                <img src="./img/background/logo_nuevo.png" style="width: 50%; height:auto" />
+                            </div>
+                        </div>
+                        <!--<article id="mainContentDiv" style="min-height: calc(100vh - 2rem); display: none; padding: 2rem">
+                        </article>-->
+                        <div id="mainContentDiv">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="divProcess" class="progressBackgroundFilter" style="display: none"><div><progress class="circle large"></progress></div></div>
+    <div id="snSuccess" class="snackbar" onclick="hideSuccess()"></div>
+    <div id="snError" class="snackbar error" onclick="hideError()"></div>
+    <div id="divConfirmOverlay" class="overlay blur"></div>
+    <dialog id="divConfirm">
+        <h5 id="lbConfirmTitle"></h5>
+        <div id="lbConfirmMessage"></div>
+        <nav class="right-align no-space">
+            <button class="transparent link" id="btConfirmAccept"></button>
+            <button class="transparent link" id="btConfirmCancel"></button>
+        </nav>
+    </dialog>
+    <script src="./index.js?v=3" type="text/javascript"></script>
+</body>
+</html>

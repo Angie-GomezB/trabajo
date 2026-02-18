@@ -1,0 +1,946 @@
+2025-11-25 09:22:25	INIT
+2025-11-25 09:22:25	WebBDUt(1033) init. UseCache:False
+2025-11-25 09:45:41	INIT
+2025-11-25 09:45:41	WebBDUt(1033) init. UseCache:False
+2025-11-25 10:18:34	INIT
+2025-11-25 10:18:34	WebBDUt(1033) init. UseCache:False
+2025-11-25 10:19:32	INIT
+2025-11-25 10:19:33	WebBDUt(1033) init. UseCache:False
+2025-11-25 10:20:41	INIT
+2025-11-25 10:20:41	WebBDUt(1033) init. UseCache:False
+2025-11-25 10:21:28	Se denegó el permiso SELECT en el objeto 'Fact_Prefacturas_CIDV', base de datos 'CRMFedEx', esquema 'dbo'.
+SP: Landing/Get_Detalle_Prefactura
+Pars: @Token|
+Vals: C9B2B0FE-1401-43C2-BC5A-C00994EDD746|
+2025-11-25 10:22:26	Se denegó el permiso SELECT en el objeto 'Fact_Prefacturas_CIDV', base de datos 'CRMFedEx', esquema 'dbo'.
+SP: Landing/Get_Detalle_Prefactura
+Pars: @Token|
+Vals: C9B2B0FE-1401-43C2-BC5A-C00994EDD746|
+2025-11-25 06:07:27	INIT
+2025-11-25 06:07:27	WebBDUt(1033) init. UseCache:False
+2025-11-26 03:51:36	Instrucción INSERT en conflicto con la restricción FOREIGN KEY 'FK__Fact_Paso__Id_Es__78EA28DF'. El conflicto ha aparecido en la base de datos 'CRMFedEx', tabla 'dbo.Dim_Estado_CIDV', column 'Id_Estado_CIDV'.
+Se terminó la instrucción.
+SP: Landing/Ins_Aprobacion_Otros
+Pars: @Token|@Orden_Compra|@Fecha_Orden_Compra|@Archivo|@Ruta|@Datos|@Observaciones|
+Vals: 0847253E-53D1-42CA-8909-8222B84C0F38||||||Prueba |
+2026-01-05 01:13:55	INIT
+2026-01-05 01:13:55	WebBDUt(1033) init. UseCache:False
+2026-01-05 01:15:54	INIT
+2026-01-05 01:15:54	WebBDUt(1033) init. UseCache:False
+2026-01-05 01:17:14	INIT
+2026-01-05 01:17:14	WebBDUt(1033) init. UseCache:False
+2026-01-05 01:25:08	INIT
+2026-01-05 01:25:08	WebBDUt(1033) init. UseCache:False
+2026-01-06 11:30:56	INIT
+2026-01-06 11:30:56	WebBDUt(1033) init. UseCache:False
+2026-01-06 11:31:36	INIT
+2026-01-06 11:31:36	WebBDUt(1033) init. UseCache:False
+2026-01-06 11:36:34	INIT
+2026-01-06 11:36:35	WebBDUt(1033) init. UseCache:False
+2026-01-07 12:08:41	INIT
+2026-01-07 12:08:41	WebBDUt(1033) init. UseCache:False
+2026-01-07 12:13:31	INIT
+2026-01-07 12:13:31	WebBDUt(1033) init. UseCache:False
+2026-01-08 10:47:09	INIT
+2026-01-08 10:47:09	WebBDUt(1033) init. UseCache:False
+2026-01-08 10:56:38	Invalid object name 'clientes'.
+SP: Clientes/Get_Clientes
+Pars: @nombres|
+Vals: |
+2026-01-08 10:57:32	Invalid object name 'clientes'.
+SP: Clientes/Get_Clientes
+Pars: @nombres|
+Vals: |
+2026-01-08 10:58:03	INIT
+2026-01-08 10:58:04	WebBDUt(1033) init. UseCache:False
+2026-01-08 04:11:22	INIT
+2026-01-08 04:11:22	WebBDUt(1033) init. UseCache:False
+2026-01-09 09:30:45	INIT
+2026-01-09 09:30:45	WebBDUt(1033) init. UseCache:False
+2026-01-09 10:23:07	INIT
+2026-01-09 10:23:07	WebBDUt(1033) init. UseCache:False
+2026-01-09 10:56:03	INIT
+2026-01-09 10:56:03	WebBDUt(1033) init. UseCache:False
+2026-01-09 11:13:09	INIT
+2026-01-09 11:13:09	WebBDUt(1033) init. UseCache:False
+2026-01-09 11:18:41	INIT
+2026-01-09 11:18:41	WebBDUt(1033) init. UseCache:False
+2026-01-09 11:21:20	INIT
+2026-01-09 11:21:20	WebBDUt(1033) init. UseCache:False
+2026-01-09 11:48:06	INIT
+2026-01-09 11:48:06	WebBDUt(1033) init. UseCache:False
+2026-01-09 11:55:23	INIT
+2026-01-09 11:55:23	WebBDUt(1033) init. UseCache:False
+2026-01-09 11:57:48	INIT
+2026-01-09 11:57:48	WebBDUt(1033) init. UseCache:False
+2026-01-09 12:05:50	INIT
+2026-01-09 12:05:50	WebBDUt(1033) init. UseCache:False
+2026-01-09 12:15:23	INIT
+2026-01-09 12:15:23	WebBDUt(1033) init. UseCache:False
+2026-01-09 12:15:56	The variable name '@tipo_documento' has already been declared. Variable names must be unique within a query batch or stored procedure.
+Must declare the scalar variable "@usuario".
+Incorrect syntax near 'go'.
+The variable name '@tipo_documento' has already been declared. Variable names must be unique within a query batch or stored procedure.
+The variable name '@nombre_norm' has already been declared. Variable names must be unique within a query batch or stored procedure.
+Must declare the scalar variable "@usuario".
+Incorrect syntax near 'go'.
+The variable name '@tipo_documento' has already been declared. Variable names must be unique within a query batch or stored procedure.
+The variable name '@nombre_norm' has already been declared. Variable names must be unique within a query batch or stored procedure.
+Must declare the scalar variable "@usuario".
+Incorrect syntax near 'go'.
+The variable name '@tipo_documento' has already been declared. Variable names must be unique within a query batch or stored procedure.
+The variable name '@nombre_norm' has already been declared. Variable names must be unique within a query batch or stored procedure.
+Must declare the scalar variable "@usuario".
+Incorrect syntax near 'go'.
+The variable name '@tipo_documento' has already been declared. Variable names must be unique within a query batch or stored procedure.
+The variable name '@nombre_norm' has already been declared. Variable names must be unique within a query batch or stored procedure.
+Must declare the scalar variable "@usuario".
+Incorrect syntax near 'go'.
+Incorrect syntax near ';'.
+SP: Clientes/Ins_Clientes
+Pars: @tipo_documento|@cedula|@nombre|@apellido|@fecha_nacimiento|
+Vals: CC|987|alejandro|sdad|2026-01-08|
+2026-01-09 12:16:06	The variable name '@tipo_documento' has already been declared. Variable names must be unique within a query batch or stored procedure.
+Must declare the scalar variable "@usuario".
+Incorrect syntax near 'go'.
+The variable name '@tipo_documento' has already been declared. Variable names must be unique within a query batch or stored procedure.
+The variable name '@nombre_norm' has already been declared. Variable names must be unique within a query batch or stored procedure.
+Must declare the scalar variable "@usuario".
+Incorrect syntax near 'go'.
+The variable name '@tipo_documento' has already been declared. Variable names must be unique within a query batch or stored procedure.
+The variable name '@nombre_norm' has already been declared. Variable names must be unique within a query batch or stored procedure.
+Must declare the scalar variable "@usuario".
+Incorrect syntax near 'go'.
+The variable name '@tipo_documento' has already been declared. Variable names must be unique within a query batch or stored procedure.
+The variable name '@nombre_norm' has already been declared. Variable names must be unique within a query batch or stored procedure.
+Must declare the scalar variable "@usuario".
+Incorrect syntax near 'go'.
+The variable name '@tipo_documento' has already been declared. Variable names must be unique within a query batch or stored procedure.
+The variable name '@nombre_norm' has already been declared. Variable names must be unique within a query batch or stored procedure.
+Must declare the scalar variable "@usuario".
+Incorrect syntax near 'go'.
+Incorrect syntax near ';'.
+SP: Clientes/Ins_Clientes
+Pars: @tipo_documento|@cedula|@nombre|@apellido|@fecha_nacimiento|
+Vals: CC|987|alejandro|sdad|2026-01-08|
+2026-01-09 12:16:33	The variable name '@tipo_documento' has already been declared. Variable names must be unique within a query batch or stored procedure.
+Must declare the scalar variable "@usuario".
+Incorrect syntax near 'go'.
+The variable name '@tipo_documento' has already been declared. Variable names must be unique within a query batch or stored procedure.
+The variable name '@nombre_norm' has already been declared. Variable names must be unique within a query batch or stored procedure.
+Must declare the scalar variable "@usuario".
+Incorrect syntax near 'go'.
+The variable name '@tipo_documento' has already been declared. Variable names must be unique within a query batch or stored procedure.
+The variable name '@nombre_norm' has already been declared. Variable names must be unique within a query batch or stored procedure.
+Must declare the scalar variable "@usuario".
+Incorrect syntax near 'go'.
+The variable name '@tipo_documento' has already been declared. Variable names must be unique within a query batch or stored procedure.
+The variable name '@nombre_norm' has already been declared. Variable names must be unique within a query batch or stored procedure.
+Must declare the scalar variable "@usuario".
+Incorrect syntax near 'go'.
+The variable name '@tipo_documento' has already been declared. Variable names must be unique within a query batch or stored procedure.
+The variable name '@nombre_norm' has already been declared. Variable names must be unique within a query batch or stored procedure.
+Must declare the scalar variable "@usuario".
+Incorrect syntax near 'go'.
+Incorrect syntax near ';'.
+SP: Clientes/Ins_Clientes
+Pars: @tipo_documento|@cedula|@nombre|@apellido|@fecha_nacimiento|
+Vals: CC|987|alejandro|sdad|2026-01-08|
+2026-01-09 12:22:21	The variable name '@tipo_documento' has already been declared. Variable names must be unique within a query batch or stored procedure.
+Must declare the scalar variable "@usuario".
+Incorrect syntax near 'go'.
+The variable name '@tipo_documento' has already been declared. Variable names must be unique within a query batch or stored procedure.
+The variable name '@nombre_norm' has already been declared. Variable names must be unique within a query batch or stored procedure.
+Must declare the scalar variable "@usuario".
+Incorrect syntax near 'go'.
+The variable name '@tipo_documento' has already been declared. Variable names must be unique within a query batch or stored procedure.
+The variable name '@nombre_norm' has already been declared. Variable names must be unique within a query batch or stored procedure.
+Must declare the scalar variable "@usuario".
+Incorrect syntax near 'go'.
+The variable name '@tipo_documento' has already been declared. Variable names must be unique within a query batch or stored procedure.
+The variable name '@nombre_norm' has already been declared. Variable names must be unique within a query batch or stored procedure.
+Must declare the scalar variable "@usuario".
+Incorrect syntax near 'go'.
+The variable name '@tipo_documento' has already been declared. Variable names must be unique within a query batch or stored procedure.
+The variable name '@nombre_norm' has already been declared. Variable names must be unique within a query batch or stored procedure.
+Must declare the scalar variable "@usuario".
+Incorrect syntax near 'go'.
+Incorrect syntax near ';'.
+SP: Clientes/Ins_Clientes
+Pars: @tipo_documento|@cedula|@nombre|@apellido|@fecha_nacimiento|
+Vals: CC|988|jhgjh|ghgkhg||
+2026-01-09 01:21:08	The variable name '@tipo_documento' has already been declared. Variable names must be unique within a query batch or stored procedure.
+Must declare the scalar variable "@usuario".
+Incorrect syntax near 'go'.
+The variable name '@tipo_documento' has already been declared. Variable names must be unique within a query batch or stored procedure.
+The variable name '@nombre_norm' has already been declared. Variable names must be unique within a query batch or stored procedure.
+Must declare the scalar variable "@usuario".
+Incorrect syntax near 'go'.
+The variable name '@tipo_documento' has already been declared. Variable names must be unique within a query batch or stored procedure.
+The variable name '@nombre_norm' has already been declared. Variable names must be unique within a query batch or stored procedure.
+Must declare the scalar variable "@usuario".
+Incorrect syntax near 'go'.
+The variable name '@tipo_documento' has already been declared. Variable names must be unique within a query batch or stored procedure.
+The variable name '@nombre_norm' has already been declared. Variable names must be unique within a query batch or stored procedure.
+Must declare the scalar variable "@usuario".
+Incorrect syntax near 'go'.
+The variable name '@tipo_documento' has already been declared. Variable names must be unique within a query batch or stored procedure.
+The variable name '@nombre_norm' has already been declared. Variable names must be unique within a query batch or stored procedure.
+Must declare the scalar variable "@usuario".
+Incorrect syntax near 'go'.
+Incorrect syntax near ';'.
+SP: Clientes/Ins_Clientes
+Pars: @tipo_documento|@cedula|@nombre|@apellido|@fecha_nacimiento|
+Vals: CC|988|jhgjh|ghgkhg||
+2026-01-09 03:22:11	The variable name '@tipo_documento' has already been declared. Variable names must be unique within a query batch or stored procedure.
+Must declare the scalar variable "@usuario".
+Incorrect syntax near 'go'.
+Incorrect syntax near ';'.
+SP: Clientes/Ins_Clientes
+Pars: @tipo_documento|@cedula|@nombre|@apellido|@fecha_nacimiento|
+Vals: CC|988|jhgjh|ghgkhg||
+2026-01-09 03:26:08	The variable name '@tipo_documento' has already been declared. Variable names must be unique within a query batch or stored procedure.
+Must declare the scalar variable "@usuario".
+SP: Clientes/Ins_Clientes
+Pars: @tipo_documento|@cedula|@nombre|@apellido|@fecha_nacimiento|
+Vals: CC|987|Alejandro|Salcedo|2026-01-01|
+2026-01-09 03:31:45	INIT
+2026-01-09 03:31:45	WebBDUt(1033) init. UseCache:False
+2026-01-09 03:34:45	INIT
+2026-01-09 03:34:46	WebBDUt(1033) init. UseCache:False
+2026-01-09 03:35:19	The variable name '@tipo_documento' has already been declared. Variable names must be unique within a query batch or stored procedure.
+Must declare the scalar variable "@usuario".
+SP: Clientes/Ins_Clientes
+Pars: @tipo_documento|@cedula|@nombre|@apellido|@fecha_nacimiento|
+Vals: CC|987|Alejandro|urjfjgf|2025-12-31|
+2026-01-09 03:35:25	The variable name '@tipo_documento' has already been declared. Variable names must be unique within a query batch or stored procedure.
+Must declare the scalar variable "@usuario".
+SP: Clientes/Ins_Clientes
+Pars: @tipo_documento|@cedula|@nombre|@apellido|@fecha_nacimiento|
+Vals: CC|987|Alejandro|urjfjgf|2025-12-31|
+2026-01-09 03:35:29	The variable name '@tipo_documento' has already been declared. Variable names must be unique within a query batch or stored procedure.
+Must declare the scalar variable "@usuario".
+SP: Clientes/Ins_Clientes
+Pars: @tipo_documento|@cedula|@nombre|@apellido|@fecha_nacimiento|
+Vals: CC|987|Alejandro|urjfjgf|2025-12-31|
+2026-01-09 03:35:33	The variable name '@tipo_documento' has already been declared. Variable names must be unique within a query batch or stored procedure.
+Must declare the scalar variable "@usuario".
+SP: Clientes/Ins_Clientes
+Pars: @tipo_documento|@cedula|@nombre|@apellido|@fecha_nacimiento|
+Vals: CC|987|Alejandro|urjfjgf|2025-12-31|
+2026-01-09 03:42:06	The variable name '@tipo_documento' has already been declared. Variable names must be unique within a query batch or stored procedure.
+Must declare the scalar variable "@usuario".
+SP: Clientes/Ins_Clientes
+Pars: @tipo_documento|@cedula|@nombre|@apellido|@fecha_nacimiento|
+Vals: CC|987|Alejandro|urjfjgf|2025-12-31|
+2026-01-09 03:42:48	The variable name '@tipo_documento' has already been declared. Variable names must be unique within a query batch or stored procedure.
+Must declare the scalar variable "@usuario".
+SP: Clientes/Ins_Clientes
+Pars: @tipo_documento|@cedula|@nombre|@apellido|@fecha_nacimiento|
+Vals: CC|987|Alejandro|urjfjgf|2025-12-31|
+2026-01-09 03:44:35	INIT
+2026-01-09 03:44:35	WebBDUt(1033) init. UseCache:False
+2026-01-09 03:44:57	The variable name '@tipo_documento' has already been declared. Variable names must be unique within a query batch or stored procedure.
+Must declare the scalar variable "@usuario".
+SP: Clientes/Ins_Clientes
+Pars: @tipo_documento|@cedula|@nombre|@apellido|@fecha_nacimiento|
+Vals: CC|987|sasfd|afdsf|2026-01-01|
+2026-01-09 03:47:00	INIT
+2026-01-09 03:47:01	WebBDUt(1033) init. UseCache:False
+2026-01-09 03:48:02	Incorrect syntax near the keyword 'set'.
+Must declare the scalar variable "@usuario".
+SP: Clientes/Ins_Clientes
+Pars: @tipo_documento|@cedula|@nombre|@apellido|@fecha_nacimiento|
+Vals: CC|987|fafs|safsd|2026-01-05|
+2026-01-09 03:51:20	The variable name '@tipo_documento' has already been declared. Variable names must be unique within a query batch or stored procedure.
+SP: Clientes/Ins_Clientes
+Pars: @tipo_documento|@cedula|@nombre|@apellido|@fecha_nacimiento|@Usuario|
+Vals: CC|987|asfsdf|asfasd|2026-01-07|administrador|
+2026-01-09 03:53:52	INIT
+2026-01-09 03:53:52	WebBDUt(1033) init. UseCache:False
+2026-01-09 03:54:13	The variable name '@tipo_documento' has already been declared. Variable names must be unique within a query batch or stored procedure.
+SP: Clientes/Ins_Clientes
+Pars: @tipo_documento|@cedula|@nombre|@apellido|@fecha_nacimiento|@Usuario|
+Vals: CC|987|eouyre|qyureuhf|2026-01-06|administrador|
+2026-01-09 03:59:03	The variable name '@tipo_documento' has already been declared. Variable names must be unique within a query batch or stored procedure.
+SP: Clientes/Ins_Clientes
+Pars: @tipo_documento|@cedula|@nombre|@apellido|@fecha_nacimiento|@Usuario|
+Vals: CC|987|eouyre|qyureuhf|2026-01-06|administrador|
+2026-01-13 02:10:20	INIT
+2026-01-13 02:10:20	WebBDUt(1033) init. UseCache:False
+2026-01-13 02:40:36	INIT
+2026-01-13 02:40:36	WebBDUt(1033) init. UseCache:False
+2026-01-13 09:10:36	INIT
+2026-01-13 09:10:36	WebBDUt(1033) init. UseCache:False
+2026-01-13 09:13:32	INIT
+2026-01-13 09:13:32	WebBDUt(1033) init. UseCache:False
+2026-01-13 09:17:22	INIT
+2026-01-13 09:17:22	WebBDUt(1033) init. UseCache:False
+2026-01-13 09:26:20	INIT
+2026-01-13 09:26:20	WebBDUt(1033) init. UseCache:False
+2026-01-13 09:53:25	INIT
+2026-01-13 09:53:25	WebBDUt(1033) init. UseCache:False
+2026-01-13 09:55:19	INIT
+2026-01-13 09:55:19	WebBDUt(1033) init. UseCache:False
+2026-01-13 09:57:35	INIT
+2026-01-13 09:57:35	WebBDUt(1033) init. UseCache:False
+2026-01-13 10:06:56	INIT
+2026-01-13 10:06:56	WebBDUt(1033) init. UseCache:False
+2026-01-13 10:14:59	INIT
+2026-01-13 10:14:59	WebBDUt(1033) init. UseCache:False
+2026-01-13 10:24:15	INIT
+2026-01-13 10:24:15	WebBDUt(1033) init. UseCache:False
+2026-01-13 01:41:23	INIT
+2026-01-13 01:41:23	WebBDUt(1033) init. UseCache:False
+2026-01-13 02:18:02	INIT
+2026-01-13 02:18:02	WebBDUt(1033) init. UseCache:False
+2026-01-13 02:24:26	INIT
+2026-01-13 02:24:26	WebBDUt(1033) init. UseCache:False
+2026-01-13 02:24:53	INIT
+2026-01-13 02:24:53	WebBDUt(1033) init. UseCache:False
+2026-01-13 02:26:51	INIT
+2026-01-13 02:26:51	WebBDUt(1033) init. UseCache:False
+2026-01-13 02:26:59	generic/genericDO    The client reset the request stream.
+
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpRequestStream.ReadAsyncInternal(Memory`1 destination, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.IO.StreamReader.ReadBufferAsync(CancellationToken cancellationToken)
+   at System.IO.StreamReader.ReadToEndAsyncInternal(CancellationToken cancellationToken)
+   at Program.<>c__DisplayClass0_0.<<<Main>$>b__1>d.MoveNext() in C:\Users\asus\Desktop\SERLEFIN\cidvweb_e\cidvweb_e\Program.cs:line 78
+2026-01-13 02:29:14	INIT
+2026-01-13 02:29:14	WebBDUt(1033) init. UseCache:False
+2026-01-13 02:29:28	Must declare the scalar variable "@Id_Departamento".
+SP: Productos/Get_Productos
+Pars: 
+Vals: 
+2026-01-13 02:31:50	Must declare the scalar variable "@Id_Departamento".
+SP: Productos/Get_Productos
+Pars: 
+Vals: 
+2026-01-13 02:37:06	INIT
+2026-01-13 02:37:06	WebBDUt(1033) init. UseCache:False
+2026-01-13 02:37:21	Must declare the scalar variable "@Id_Departamento".
+SP: Productos/Get_Productos
+Pars: 
+Vals: 
+2026-01-13 02:37:27	Must declare the scalar variable "@Id_Departamento".
+SP: Productos/Get_Productos
+Pars: 
+Vals: 
+2026-01-13 02:37:30	Must declare the scalar variable "@Id_Departamento".
+SP: Productos/Get_Productos
+Pars: 
+Vals: 
+2026-01-13 02:37:35	Must declare the scalar variable "@Id_Departamento".
+SP: Productos/Get_Productos
+Pars: 
+Vals: 
+2026-01-13 02:41:08	Must declare the scalar variable "@Id_Departamento".
+SP: Productos/Get_Productos
+Pars: 
+Vals: 
+2026-01-13 02:41:19	INIT
+2026-01-13 02:41:19	WebBDUt(1033) init. UseCache:False
+2026-01-13 02:41:35	Must declare the scalar variable "@Id_Departamento".
+SP: Productos/Get_Productos
+Pars: 
+Vals: 
+2026-01-13 02:41:46	generic/genericDO    The client reset the request stream.
+
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpRequestStream.ReadAsyncInternal(Memory`1 destination, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.IO.StreamReader.ReadBufferAsync(CancellationToken cancellationToken)
+   at System.IO.StreamReader.ReadToEndAsyncInternal(CancellationToken cancellationToken)
+   at Program.<>c__DisplayClass0_0.<<<Main>$>b__1>d.MoveNext() in C:\Users\asus\Desktop\SERLEFIN\cidvweb_e\cidvweb_e\Program.cs:line 78
+2026-01-13 02:41:47	Must declare the scalar variable "@Id_Departamento".
+SP: Productos/Get_Productos
+Pars: 
+Vals: 
+2026-01-13 10:38:02	INIT
+2026-01-13 10:38:02	WebBDUt(1033) init. UseCache:False
+2026-01-13 10:39:02	Must declare the scalar variable "@Id_Departamento".
+SP: Productos/Get_Productos
+Pars: 
+Vals: 
+2026-01-13 10:39:53	Must declare the scalar variable "@Id_Departamento".
+SP: Productos/Get_Productos
+Pars: 
+Vals: 
+2026-01-13 10:40:01	Must declare the scalar variable "@Id_Departamento".
+SP: Productos/Get_Productos
+Pars: 
+Vals: 
+2026-01-13 10:40:05	Must declare the scalar variable "@Id_Departamento".
+SP: Productos/Get_Productos
+Pars: 
+Vals: 
+2026-01-13 10:40:08	Must declare the scalar variable "@Id_Departamento".
+SP: Productos/Get_Productos
+Pars: 
+Vals: 
+2026-01-13 11:00:51	INIT
+2026-01-13 11:00:51	WebBDUt(1033) init. UseCache:False
+2026-01-13 11:01:03	Must declare the scalar variable "@Id_Departamento".
+SP: Productos/Get_Productos
+Pars: 
+Vals: 
+2026-01-13 11:07:22	INIT
+2026-01-13 11:07:22	WebBDUt(1033) init. UseCache:False
+2026-01-13 11:07:36	Must declare the scalar variable "@Id_Departamento".
+SP: Productos/Get_Productos
+Pars: 
+Vals: 
+2026-01-13 11:10:55	INIT
+2026-01-13 11:10:55	WebBDUt(1033) init. UseCache:False
+2026-01-13 11:11:11	Must declare the scalar variable "@Id_Departamento".
+SP: Productos/Get_Productos
+Pars: 
+Vals: 
+2026-01-13 11:19:00	INIT
+2026-01-13 11:19:00	WebBDUt(1033) init. UseCache:False
+2026-01-13 11:19:16	Must declare the scalar variable "@Id_Departamento".
+SP: Productos/Get_Productos
+Pars: 
+Vals: 
+2026-01-13 11:25:18	INIT
+2026-01-13 11:25:18	WebBDUt(1033) init. UseCache:False
+2026-01-13 11:25:30	Must declare the scalar variable "@Id_Departamento".
+SP: Productos/Get_Productos
+Pars: 
+Vals: 
+2026-01-13 11:25:59	INIT
+2026-01-13 11:25:59	WebBDUt(1033) init. UseCache:False
+2026-01-13 11:26:10	Must declare the scalar variable "@Id_Departamento".
+SP: Productos/Get_Productos
+Pars: 
+Vals: 
+2026-01-13 11:27:51	INIT
+2026-01-13 11:27:51	WebBDUt(1033) init. UseCache:False
+2026-01-13 11:28:04	Must declare the scalar variable "@Id_Departamento".
+SP: Productos/Get_Productos
+Pars: 
+Vals: 
+2026-01-13 11:35:44	INIT
+2026-01-13 11:35:44	WebBDUt(1033) init. UseCache:False
+2026-01-13 11:36:00	Must declare the scalar variable "@Id_Departamento".
+SP: Productos/Get_Productos
+Pars: 
+Vals: 
+2026-01-13 11:36:12	Must declare the scalar variable "@Id_Departamento".
+SP: Productos/Get_Productos
+Pars: 
+Vals: 
+2026-01-13 11:38:19	INIT
+2026-01-13 11:38:19	WebBDUt(1033) init. UseCache:False
+2026-01-13 11:38:31	Must declare the scalar variable "@Id_Departamento".
+SP: Productos/Get_Productos
+Pars: 
+Vals: 
+2026-01-13 11:45:43	INIT
+2026-01-13 11:45:43	WebBDUt(1033) init. UseCache:False
+2026-01-13 11:47:54	INIT
+2026-01-13 11:47:54	WebBDUt(1033) init. UseCache:False
+2026-01-13 11:56:38	INIT
+2026-01-13 11:56:38	WebBDUt(1033) init. UseCache:False
+2026-01-13 11:58:46	INIT
+2026-01-13 11:58:46	WebBDUt(1033) init. UseCache:False
+2026-01-14 12:00:07	INIT
+2026-01-14 12:00:07	WebBDUt(1033) init. UseCache:False
+2026-01-14 12:03:35	INIT
+2026-01-14 12:03:35	WebBDUt(1033) init. UseCache:False
+2026-01-14 12:04:53	INIT
+2026-01-14 12:04:53	WebBDUt(1033) init. UseCache:False
+2026-01-14 12:09:56	INIT
+2026-01-14 12:09:56	WebBDUt(1033) init. UseCache:False
+2026-01-14 12:10:59	INIT
+2026-01-14 12:10:59	WebBDUt(1033) init. UseCache:False
+2026-01-14 12:11:33	INIT
+2026-01-14 12:11:33	WebBDUt(1033) init. UseCache:False
+2026-01-14 12:12:58	INIT
+2026-01-14 12:12:58	WebBDUt(1033) init. UseCache:False
+2026-01-14 12:16:01	INIT
+2026-01-14 12:16:01	WebBDUt(1033) init. UseCache:False
+2026-01-14 12:17:01	INIT
+2026-01-14 12:17:01	WebBDUt(1033) init. UseCache:False
+2026-01-14 12:18:28	INIT
+2026-01-14 12:18:28	WebBDUt(1033) init. UseCache:False
+2026-01-14 08:50:07	Se ha establecido la conexión con el servidor correctamente, pero se ha producido un error durante el inicio de sesión previo del protocolo de enlace. (provider: Proveedor de TCP, error: 0 - Se ha forzado la interrupción de una conexión existente por el host remoto.)
+SP: Departamentos/Get_Departamentos
+Pars: 
+Vals: 
+2026-01-14 11:32:44	INIT
+2026-01-14 11:32:44	WebBDUt(1033) init. UseCache:False
+2026-01-14 11:33:05	INIT
+2026-01-14 11:33:05	WebBDUt(1033) init. UseCache:False
+2026-01-14 11:35:41	INIT
+2026-01-14 11:35:41	WebBDUt(1033) init. UseCache:False
+2026-01-14 11:49:20	INIT
+2026-01-14 11:49:20	WebBDUt(1033) init. UseCache:False
+2026-01-14 11:55:22	INIT
+2026-01-14 11:55:22	WebBDUt(1033) init. UseCache:False
+2026-01-14 11:57:53	INIT
+2026-01-14 11:57:53	WebBDUt(1033) init. UseCache:False
+2026-01-14 03:31:37	INIT
+2026-01-14 03:31:37	WebBDUt(1033) init. UseCache:False
+2026-01-14 03:32:50	INIT
+2026-01-14 03:32:50	WebBDUt(1033) init. UseCache:False
+2026-01-14 03:42:13	INIT
+2026-01-14 03:42:13	WebBDUt(1033) init. UseCache:False
+2026-01-14 03:47:11	INIT
+2026-01-14 03:47:11	WebBDUt(1033) init. UseCache:False
+2026-01-14 03:57:10	INIT
+2026-01-14 03:57:10	WebBDUt(1033) init. UseCache:False
+2026-01-14 04:15:07	INIT
+2026-01-14 04:15:07	WebBDUt(1033) init. UseCache:False
+2026-01-14 04:21:41	INIT
+2026-01-14 04:21:41	WebBDUt(1033) init. UseCache:False
+2026-01-14 04:24:18	INIT
+2026-01-14 04:24:18	WebBDUt(1033) init. UseCache:False
+2026-01-14 04:36:14	INIT
+2026-01-14 04:36:14	WebBDUt(1033) init. UseCache:False
+2026-01-14 04:40:26	INIT
+2026-01-14 04:40:26	WebBDUt(1033) init. UseCache:False
+2026-01-14 05:06:14	INIT
+2026-01-14 05:06:14	WebBDUt(1033) init. UseCache:False
+2026-01-14 05:42:49	INIT
+2026-01-14 05:42:49	WebBDUt(1033) init. UseCache:False
+2026-01-14 05:43:13	Incorrect syntax near the keyword 'where'.
+SP: Departamentos/Get_Departamentos
+Pars: @usuario|
+Vals: administrador|
+2026-01-14 05:43:30	Incorrect syntax near the keyword 'where'.
+SP: Departamentos/Get_Departamentos
+Pars: @usuario|
+Vals: administrador|
+2026-01-14 11:18:49	INIT
+2026-01-14 11:18:49	WebBDUt(1033) init. UseCache:False
+2026-01-14 11:20:23	INIT
+2026-01-14 11:20:23	WebBDUt(1033) init. UseCache:False
+2026-01-14 11:23:41	INIT
+2026-01-14 11:23:41	WebBDUt(1033) init. UseCache:False
+2026-01-14 11:43:12	INIT
+2026-01-14 11:43:12	WebBDUt(1033) init. UseCache:False
+2026-01-14 11:55:43	INIT
+2026-01-14 11:55:43	WebBDUt(1033) init. UseCache:False
+2026-01-14 11:56:10	Must declare the scalar variable "@Id_Cliente".
+SP: Facturas/Get_Facturas_Cliente
+Pars: 
+Vals: 
+2026-01-15 12:29:52	INIT
+2026-01-15 12:29:52	WebBDUt(1033) init. UseCache:False
+2026-01-15 12:30:34	Must declare the scalar variable "@Id_Cliente".
+SP: Facturas/Get_Facturas_Cliente
+Pars: 
+Vals: 
+2026-01-15 12:31:46	Must declare the scalar variable "@Id_Cliente".
+SP: Facturas/Get_Facturas_Cliente
+Pars: 
+Vals: 
+2026-01-15 12:32:15	Must declare the scalar variable "@Id_Cliente".
+SP: Facturas/Get_Facturas_Cliente
+Pars: 
+Vals: 
+2026-01-15 01:08:44	INIT
+2026-01-15 01:08:44	WebBDUt(1033) init. UseCache:False
+2026-01-15 01:09:15	Must declare the scalar variable "@Id_Cliente".
+SP: Facturas/Get_Facturas_Cliente
+Pars: 
+Vals: 
+2026-01-15 01:10:12	Must declare the scalar variable "@Id_Cliente".
+SP: Facturas/Get_Facturas_Cliente
+Pars: 
+Vals: 
+2026-01-15 01:24:37	INIT
+2026-01-15 01:24:37	WebBDUt(1033) init. UseCache:False
+2026-01-15 01:27:18	INIT
+2026-01-15 01:27:18	WebBDUt(1033) init. UseCache:False
+2026-01-15 01:29:47	INIT
+2026-01-15 01:29:47	WebBDUt(1033) init. UseCache:False
+2026-01-15 01:30:01	INIT
+2026-01-15 01:30:02	WebBDUt(1033) init. UseCache:False
+2026-01-15 01:33:56	INIT
+2026-01-15 01:33:56	WebBDUt(1033) init. UseCache:False
+2026-01-15 09:20:18	INIT
+2026-01-15 09:20:18	WebBDUt(1033) init. UseCache:False
+2026-01-15 09:27:48	La conexión con el servidor se ha establecido correctamente, pero se ha producido un error durante el proceso de inicio de sesión. (provider: Proveedor de TCP, error: 0 - Se ha anulado una conexión establecida por el software en su equipo host..)
+SP: Departamentos/Get_Departamentos
+Pars: @usuario|
+Vals: administrador|
+2026-01-15 09:28:54	Must declare the scalar variable "@Id_Departamento".
+SP: Productos/Ins_Productos
+Pars: @Id_Producto|@Nombre_Producto|@Usuario|
+Vals: P004|Estufa|administrador|
+2026-01-15 09:29:01	Must declare the scalar variable "@Id_Departamento".
+SP: Productos/Ins_Productos
+Pars: @Id_Producto|@Nombre_Producto|@Usuario|
+Vals: P004|Estufa|administrador|
+2026-01-15 09:38:46	Must declare the scalar variable "@Id_Cliente".
+SP: Facturas/Get_Facturas_Cliente
+Pars: 
+Vals: 
+2026-01-15 09:39:25	Must declare the scalar variable "@Id_Cliente".
+SP: Facturas/Get_Facturas_Cliente
+Pars: 
+Vals: 
+2026-01-15 09:39:43	Must declare the scalar variable "@Id_Cliente".
+SP: Facturas/Get_Facturas_Cliente
+Pars: 
+Vals: 
+2026-01-15 09:40:02	Must declare the scalar variable "@Id_Cliente".
+SP: Facturas/Get_Facturas_Cliente
+Pars: 
+Vals: 
+2026-01-15 09:41:17	Must declare the scalar variable "@Id_Cliente".
+SP: Facturas/Get_Facturas_Cliente
+Pars: 
+Vals: 
+2026-01-15 09:43:11	Must declare the scalar variable "@Id_Cliente".
+SP: Facturas/Get_Facturas_Cliente
+Pars: 
+Vals: 
+2026-01-15 09:44:17	Must declare the scalar variable "@Id_Cliente".
+SP: Facturas/Get_Facturas_Cliente
+Pars: 
+Vals: 
+2026-01-15 09:44:35	Must declare the scalar variable "@Id_Cliente".
+SP: Facturas/Get_Facturas_Cliente
+Pars: 
+Vals: 
+2026-01-15 09:45:08	Must declare the scalar variable "@Id_Cliente".
+SP: Facturas/Get_Facturas_Cliente
+Pars: 
+Vals: 
+2026-01-15 09:47:58	Must declare the scalar variable "@Id_Cliente".
+SP: Facturas/Get_Facturas_Cliente
+Pars: 
+Vals: 
+2026-01-15 09:48:09	INIT
+2026-01-15 09:48:09	WebBDUt(1033) init. UseCache:False
+2026-01-15 09:57:18	INIT
+2026-01-15 09:57:18	WebBDUt(1033) init. UseCache:False
+2026-01-15 09:57:42	Must declare the scalar variable "@Id_Cliente".
+SP: Facturas/Get_Facturas_Cliente
+Pars: 
+Vals: 
+2026-01-15 10:08:18	Must declare the scalar variable "@Id_Cliente".
+SP: Facturas/Get_Facturas_Cliente
+Pars: 
+Vals: 
+2026-01-15 10:40:31	INIT
+2026-01-15 10:40:31	WebBDUt(1033) init. UseCache:False
+2026-01-15 10:40:43	Must declare the scalar variable "@Id_Cliente".
+SP: Facturas/Get_Facturas_Cliente
+Pars: 
+Vals: 
+2026-01-15 10:43:03	INIT
+2026-01-15 10:43:03	WebBDUt(1033) init. UseCache:False
+2026-01-15 10:44:27	Must declare the scalar variable "@Id_Cliente".
+SP: Facturas/Get_Facturas_Cliente
+Pars: 
+Vals: 
+2026-01-15 10:44:33	Must declare the scalar variable "@Id_Cliente".
+SP: Facturas/Get_Facturas_Cliente
+Pars: 
+Vals: 
+2026-01-15 10:44:38	Must declare the scalar variable "@Id_Cliente".
+SP: Facturas/Get_Facturas_Cliente
+Pars: 
+Vals: 
+2026-01-15 10:44:59	Must declare the scalar variable "@Id_Cliente".
+SP: Facturas/Get_Facturas_Cliente
+Pars: 
+Vals: 
+2026-01-15 10:45:29	Must declare the scalar variable "@Id_Cliente".
+SP: Facturas/Get_Facturas_Cliente
+Pars: 
+Vals: 
+2026-01-15 11:08:50	INIT
+2026-01-15 11:08:50	WebBDUt(1033) init. UseCache:False
+2026-01-15 11:10:12	Must declare the scalar variable "@Id_Cliente".
+SP: Facturas/Get_Facturas_Cliente
+Pars: 
+Vals: 
+2026-01-15 11:20:30	INIT
+2026-01-15 11:20:30	WebBDUt(1033) init. UseCache:False
+2026-01-15 12:01:37	Error al convertir el valor del parámetro de String a Boolean.
+SP: Productos/Upd_Productos
+Pars: @Id_Producto|@Stock|@Activo|@Usuario|
+Vals: P003|50|0|administrador|
+2026-01-15 12:01:38	Error al convertir el valor del parámetro de String a Boolean.
+SP: Productos/Upd_Productos
+Pars: @Id_Producto|@Stock|@Activo|@Usuario|
+Vals: P001|50|0|administrador|
+2026-01-22 04:23:12	INIT
+2026-01-22 04:23:12	WebBDUt(1033) init. UseCache:False
+2026-01-23 12:21:45	INIT
+2026-01-23 12:21:45	WebBDUt(1033) init. UseCache:False
+2026-01-23 01:41:25	INIT
+2026-01-23 01:41:25	WebBDUt(1033) init. UseCache:False
+2026-01-26 11:08:53	INIT
+2026-01-26 11:08:53	WebBDUt(1033) init. UseCache:False
+2026-01-26 02:49:59	INIT
+2026-01-26 02:49:59	WebBDUt(1033) init. UseCache:False
+2026-01-26 02:53:27	INIT
+2026-01-26 02:53:27	WebBDUt(1033) init. UseCache:False
+2026-01-27 10:13:57	INIT
+2026-01-27 10:13:57	WebBDUt(1033) init. UseCache:False
+2026-01-27 10:50:50	INIT
+2026-01-27 10:50:50	WebBDUt(1033) init. UseCache:False
+2026-01-27 03:10:12	INIT
+2026-01-27 03:10:12	WebBDUt(1033) init. UseCache:False
+2026-01-27 03:34:37	INIT
+2026-01-27 03:34:37	WebBDUt(1033) init. UseCache:False
+2026-01-28 10:28:17	Could not find file 'C:\Users\asus\Desktop\SERLEFIN\cidvweb_e\cidvweb_e\SQL\Informes\Get_Informes.sql'.
+SP: Informes/Get_Informes
+Pars: @Usuario|
+Vals: administrador|
+2026-01-28 10:28:57	INIT
+2026-01-28 10:28:57	WebBDUt(1033) init. UseCache:False
+2026-01-28 03:35:04	INIT
+2026-01-28 03:35:04	WebBDUt(1033) init. UseCache:False
+2026-01-29 03:31:25	Must declare the scalar variable "@Id_Cliente".
+SP: Facturas/Ins_Facturas
+Pars: @Valor_Total|@Usuario|
+Vals: 2260000|administrador|
+2026-01-29 03:31:34	Must declare the scalar variable "@Id_Cliente".
+SP: Facturas/Ins_Facturas
+Pars: @Valor_Total|@Usuario|
+Vals: 2260000|administrador|
+2026-01-29 03:31:38	Must declare the scalar variable "@Id_Cliente".
+SP: Facturas/Ins_Facturas
+Pars: @Valor_Total|@Usuario|
+Vals: 2260000|administrador|
+2026-01-29 03:31:56	Must declare the scalar variable "@Id_Cliente".
+SP: Facturas/Ins_Facturas
+Pars: @Valor_Total|@Usuario|
+Vals: 2260000|administrador|
+2026-01-29 03:36:21	Must declare the scalar variable "@Id_Cliente".
+SP: Facturas/Ins_Facturas
+Pars: @Valor_Total|@Usuario|
+Vals: 2260000|administrador|
+2026-01-29 03:56:33	Must declare the scalar variable "@Id_Cliente".
+SP: Facturas/Ins_Facturas
+Pars: @Valor_Total|@Usuario|
+Vals: 7410000|administrador|
+2026-01-29 04:00:08	Must declare the scalar variable "@Id_Cliente".
+SP: Facturas/Ins_Facturas
+Pars: @Valor_Total|@Usuario|
+Vals: 3500|administrador|
+2026-01-29 04:01:47	Must declare the scalar variable "@Id_Cliente".
+SP: Facturas/Ins_Facturas
+Pars: @Valor_Total|@Usuario|
+Vals: 4000000|administrador|
+2026-01-29 04:06:01	Must declare the scalar variable "@Id_Cliente".
+SP: Facturas/Ins_Facturas
+Pars: @Valor_Total|@Usuario|
+Vals: 4000000|administrador|
+2026-01-29 04:09:33	Must declare the scalar variable "@Id_Cliente".
+SP: Facturas/Ins_Facturas
+Pars: @Valor_Total|@Usuario|
+Vals: 1200000|administrador|
+2026-01-29 04:11:16	Must declare the scalar variable "@Id_Cliente".
+SP: Facturas/Get_Facturas_Cliente
+Pars: 
+Vals: 
+2026-01-29 04:15:17	Must declare the scalar variable "@Id_Cliente".
+SP: Facturas/Get_Facturas_Cliente
+Pars: 
+Vals: 
+2026-01-29 04:21:53	Must declare the scalar variable "@Id_Cliente".
+SP: Facturas/Ins_Facturas
+Pars: @Valor_Total|@Usuario|
+Vals: 3500|administrador|
+2026-01-29 04:27:55	Must declare the scalar variable "@Id_Cliente".
+SP: Facturas/Ins_Facturas
+Pars: @Valor_Total|@Usuario|
+Vals: 2800000|administrador|
+2026-01-29 04:29:43	Must declare the scalar variable "@Id_Cliente".
+SP: Facturas/Ins_Facturas
+Pars: @Valor_Total|@Usuario|
+Vals: 4000000|administrador|
+2026-01-29 04:30:50	Must declare the scalar variable "@Id_Cliente".
+SP: Facturas/Ins_Facturas
+Pars: @Valor_Total|@Usuario|
+Vals: 4000000|administrador|
+2026-01-29 06:26:32	INIT
+2026-01-29 06:26:32	WebBDUt(1033) init. UseCache:False
+2026-01-29 11:26:24	Error al convertir el valor del parámetro de String a Boolean.
+SP: Productos/Upd_Productos
+Pars: @Id_Producto|@Stock|@Activo|@Usuario|
+Vals: P002|19|1|administrador|
+2026-01-29 11:29:08	Error al convertir el valor del parámetro de String a Boolean.
+SP: Productos/Upd_Productos
+Pars: @Id_Producto|@Stock|@Activo|@Usuario|
+Vals: P001|49|1|administrador|
+2026-01-29 11:30:31	Error al convertir el valor del parámetro de String a Boolean.
+SP: Productos/Upd_Productos
+Pars: @Id_Producto|@Stock|@Activo|@Usuario|
+Vals: P002|19|1|administrador|
+2026-01-29 11:32:27	Error al convertir el valor del parámetro de String a Boolean.
+SP: Productos/Upd_Productos
+Pars: @Id_Producto|@Stock|@Activo|@Usuario|
+Vals: P003|49|1|administrador|
+2026-01-29 11:33:56	Error al convertir el valor del parámetro de String a Boolean.
+SP: Productos/Upd_Productos
+Pars: @Id_Producto|@Stock|@Activo|@Usuario|
+Vals: P003|49|1|administrador|
+2026-01-29 11:38:59	Object reference not set to an instance of an object.
+SP: Productos/Upd_Productos
+Pars: @Id_Producto|@Stock|@Activo|@Usuario|
+Vals: P013|8|True|administrador|
+2026-01-29 11:39:20	Object reference not set to an instance of an object.
+SP: Productos/Upd_Productos
+Pars: @Id_Producto|@Stock|@Activo|@Usuario|
+Vals: P013|8|True|administrador|
+2026-02-11 08:40:18	INIT
+2026-02-11 08:40:18	WebBDUt(1033) init. UseCache:False
+2026-02-11 08:47:14	INIT
+2026-02-11 08:47:14	WebBDUt(1033) init. UseCache:False
+2026-02-11 09:09:15	Must declare the scalar variable "@usuario".
+SP: Clientes/Upd_Clientes
+Pars: @Id_Cliente|@email|@telefono|@direccion|@ciudad|@activo|
+Vals: 2|angelicac@correo.com|3210000100|Calle 123 casa 4|Armenia|True|
+2026-02-11 09:46:48	INIT
+2026-02-11 09:46:48	WebBDUt(1033) init. UseCache:False
+2026-02-12 12:48:52	Object reference not set to an instance of an object.
+SP: Clientes/Upd_Clientes
+Pars: @Id_Cliente|@email|@telefono|@direccion|@ciudad|@activo|@usuario|
+Vals: 2|angelicac@correo.com|3210000100|Calle 123 casa 4|Armenia|True|administrador|
+2026-02-12 01:34:13	INIT
+2026-02-12 01:34:13	WebBDUt(1033) init. UseCache:False
+2026-02-12 01:36:24	INIT
+2026-02-12 01:36:24	WebBDUt(1033) init. UseCache:False
+2026-02-12 02:31:28	INIT
+2026-02-12 02:31:28	WebBDUt(1033) init. UseCache:False
+2026-02-12 02:47:27	INIT
+2026-02-12 02:47:27	WebBDUt(1033) init. UseCache:False
+2026-02-12 09:00:06	INIT
+2026-02-12 09:00:06	WebBDUt(1033) init. UseCache:False
+2026-02-12 11:39:05	INIT
+2026-02-12 11:39:05	WebBDUt(1033) init. UseCache:False
+2026-02-12 12:10:15	INIT
+2026-02-12 12:10:15	WebBDUt(1033) init. UseCache:False
+2026-02-12 07:46:08	INIT
+2026-02-12 07:46:08	WebBDUt(1033) init. UseCache:False
+2026-02-12 07:46:53	INIT
+2026-02-12 07:46:53	WebBDUt(1033) init. UseCache:False
+2026-02-12 07:49:50	INIT
+2026-02-12 07:49:50	WebBDUt(1033) init. UseCache:False
+2026-02-12 08:08:25	INIT
+2026-02-12 08:08:25	WebBDUt(1033) init. UseCache:False
+2026-02-12 08:36:14	Object reference not set to an instance of an object.
+SP: Clientes/Upd_Clientes
+Pars: @Id_Cliente|@email|@telefono|@direccion|@ciudad|@activo|@usuario|
+Vals: 1|nuevo@correo.com|3110000000|Nueva direccion|Bogota|True|administrador|
+2026-02-12 08:39:33	Object reference not set to an instance of an object.
+SP: Clientes/Ins_Clientes
+Pars: @Id_Fiscal|@Nm_Cliente1|@Nm_Cliente2|@Ap_Cliente1|@Ap_Cliente2|@email|@telefono|@direccion|@ciudad|@usuario|
+Vals: 654|Juan|Sebastian|Carmona|Murcia|sebas@correo.com|1234|calle 1 - casa|armenia|administrador|
+2026-02-12 08:43:47	INIT
+2026-02-12 08:43:47	WebBDUt(1033) init. UseCache:False
+2026-02-12 08:46:30	INIT
+2026-02-12 08:46:30	WebBDUt(1033) init. UseCache:False
+2026-02-12 08:57:50	Object reference not set to an instance of an object.
+SP: Clientes/Ins_Clientes
+Pars: @Id_Fiscal|@Nm_Cliente1|@Nm_Cliente2|@Ap_Cliente1|@Ap_Cliente2|@email|@telefono|@direccion|@ciudad|@usuario|
+Vals: 852|Daniela||Cespedes||fcv@correo.com|789654|calle 50|Cali|administrador|
+2026-02-12 10:10:42	Object reference not set to an instance of an object.
+SP: Clientes/Ins_Clientes
+Pars: @Id_Fiscal|@Nm_Cliente1|@Nm_Cliente2|@Ap_Cliente1|@Ap_Cliente2|@email|@telefono|@direccion|@ciudad|@usuario|
+Vals: 1097|Angie||Gómez||angie@correo.com|95123|calle 51|armenia|administrador|
+2026-02-12 10:24:38	Object reference not set to an instance of an object.
+SP: Clientes/Ins_Clientes
+Pars: @Id_Fiscal|@Nm_Cliente1|@Nm_Cliente2|@Ap_Cliente1|@Ap_Cliente2|@email|@telefono|@direccion|@ciudad|@usuario|
+Vals: 123456|fasdfaf|dfasfas|fasdfas|fadfas|sfsad|1313122|3131f3dsg|dsaff|administrador|
+2026-02-12 10:30:49	INIT
+2026-02-12 10:30:49	WebBDUt(1033) init. UseCache:False
+2026-02-12 10:31:51	INIT
+2026-02-12 10:31:51	WebBDUt(1033) init. UseCache:False
+2026-02-12 10:36:46	Object reference not set to an instance of an object.
+SP: Clientes/Ins_Clientes
+Pars: @Id_Fiscal|@Nm_Cliente1|@Nm_Cliente2|@Ap_Cliente1|@Ap_Cliente2|@email|@telefono|@direccion|@ciudad|@usuario|
+Vals: 565116|efawds|fasdfas|fdfaf|fdasfa|dgfsdag@|32165|fdsaf|fsg|administrador|
+2026-02-12 10:41:32	Object reference not set to an instance of an object.
+SP: Clientes/Ins_Clientes
+Pars: @Id_Fiscal|@Nm_Cliente1|@Nm_Cliente2|@Ap_Cliente1|@Ap_Cliente2|@email|@telefono|@direccion|@ciudad|@usuario|
+Vals: 1257486468|44654|564|665465|464|56456|6465|46464|64646|administrador|
+2026-02-13 12:27:12	INIT
+2026-02-13 12:27:12	WebBDUt(1033) init. UseCache:False
+2026-02-13 12:27:14	INIT
+2026-02-13 12:27:14	WebBDUt(1033) init. UseCache:False
+2026-02-13 02:01:22	Must declare the scalar variable "@Filtro_Nombre".
+Must declare the scalar variable "@Filtro_Nombre".
+Must declare the scalar variable "@Id_Fiscal".
+SP: Clientes/Get_Clientes
+Pars: @Usuario|
+Vals: administrador|
+2026-02-13 02:23:40	Must declare the scalar variable "@Filtro_Nombre".
+Must declare the scalar variable "@Filtro_Nombre".
+Must declare the scalar variable "@Id_Fiscal".
+SP: Clientes/Get_Clientes
+Pars: @Usuario|
+Vals: administrador|
+2026-02-13 02:29:33	INIT
+2026-02-13 02:29:33	WebBDUt(1033) init. UseCache:False
+2026-02-13 02:29:58	INIT
+2026-02-13 02:29:58	WebBDUt(1033) init. UseCache:False
+2026-02-13 03:18:46	INIT
+2026-02-13 03:18:46	WebBDUt(1033) init. UseCache:False
+2026-02-13 03:20:37	INIT
+2026-02-13 03:20:38	WebBDUt(1033) init. UseCache:False
+2026-02-13 03:22:31	Must declare the scalar variable "@Id_Fiscal".
+SP: Clientes/Get_Clientes
+Pars: @Cuenta|
+Vals: |
+2026-02-13 03:22:52	INIT
+2026-02-13 03:22:52	WebBDUt(1033) init. UseCache:False
+2026-02-13 03:33:04	INIT
+2026-02-13 03:33:04	WebBDUt(1033) init. UseCache:False
+2026-02-13 03:43:01	INIT
+2026-02-13 03:43:01	WebBDUt(1033) init. UseCache:False
+2026-02-13 04:06:50	INIT
+2026-02-13 04:06:51	WebBDUt(1033) init. UseCache:False
+2026-02-13 04:31:18	Could not find file 'C:\Users\asus\Desktop\SERLEFIN\cidvweb_e\cidvweb_e\SQL\Facturas\Get_Facturas_Por_Cliente.sql'.
+SP: Facturas/Get_Facturas_Por_Cliente
+Pars: @Id_Cliente|@Usuario|
+Vals: 2|administrador|
+2026-02-13 04:31:58	Could not find file 'C:\Users\asus\Desktop\SERLEFIN\cidvweb_e\cidvweb_e\SQL\Facturas\Get_Facturas_Por_Cliente.sql'.
+SP: Facturas/Get_Facturas_Por_Cliente
+Pars: @Id_Cliente|@Usuario|
+Vals: 14|administrador|
+2026-02-13 04:32:20	Could not find file 'C:\Users\asus\Desktop\SERLEFIN\cidvweb_e\cidvweb_e\SQL\Facturas\Get_Facturas_Por_Cliente.sql'.
+SP: Facturas/Get_Facturas_Por_Cliente
+Pars: @Id_Cliente|@Usuario|
+Vals: 14|administrador|
+2026-02-13 04:33:48	Could not find file 'C:\Users\asus\Desktop\SERLEFIN\cidvweb_e\cidvweb_e\SQL\Facturas\Get_Facturas_Por_Cliente.sql'.
+SP: Facturas/Get_Facturas_Por_Cliente
+Pars: @Id_Cliente|@Usuario|
+Vals: 14|administrador|
+2026-02-13 04:35:08	Could not find file 'C:\Users\asus\Desktop\SERLEFIN\cidvweb_e\cidvweb_e\SQL\Facturas\Get_Facturas_Por_Cliente.sql'.
+SP: Facturas/Get_Facturas_Por_Cliente
+Pars: @Id_Cliente|@Usuario|
+Vals: 14|administrador|
+2026-02-13 04:35:08	Must declare the scalar variable "@Id_Cliente".
+SP: Facturas/Get_Facturas
+Pars: @Usuario|
+Vals: administrador|
+2026-02-13 04:35:09	Could not find file 'C:\Users\asus\Desktop\SERLEFIN\cidvweb_e\cidvweb_e\SQL\Facturas\Get_Todas_Las_Facturas.sql'.
+SP: Facturas/Get_Todas_Las_Facturas
+Pars: @Usuario|
+Vals: administrador|
+2026-02-13 10:40:25	Must declare the scalar variable "@Motivo_Cambio".
+SP: Facturas/Upd_Facturas
+Pars: @Id_Factura|@Sucursal_Emisora|@Numero_Factura|@Secuencia_Factura|@Fecha_Emision|@Valor_Factura|@Valor_Impuesto|@Base_Calculo|@Porcentaje_Impuesto|@Tipo_Factura|@modalidad|@Tipo_Servicio|@Estado_Factura|@Codigo_ean_Fedex|@observaciones|@usuario|
+Vals: 4|FEDEX-CLO|FAC-004|1|2026-02-03|60000|11400.00|60000|19|TRANSPORTE|CONTADO|ENVÍO|GENERADA|||administrador|
+2026-02-17 12:07:40	INIT
+2026-02-17 12:07:40	WebBDUt(1033) init. UseCache:False
+2026-02-17 05:21:18	INIT
+2026-02-17 05:21:18	WebBDUt(1033) init. UseCache:False
+2026-02-17 05:34:28	INIT
+2026-02-17 05:34:28	WebBDUt(1033) init. UseCache:False
+2026-02-17 05:57:32	INIT
+2026-02-17 05:57:32	WebBDUt(1033) init. UseCache:False
+2026-02-17 10:58:58	INIT
+2026-02-17 10:58:58	WebBDUt(1033) init. UseCache:False
+2026-02-17 11:32:12	INIT
+2026-02-17 11:32:12	WebBDUt(1033) init. UseCache:False

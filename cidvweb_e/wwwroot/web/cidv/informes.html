@@ -1,0 +1,42 @@
+﻿<main>
+    <div v-if="mode == 0" class="grid">
+        <div class="s12 m1 l1"></div>
+        <div class="s12 m10 l10" style="width: 100%">
+            <article class="no-padding" style="min-height: calc(100vh - 5rem)">
+                <img class="responsive small" src="./img/background/datapoint.jpg">
+                <div class="padding">
+                    <h5 class="center-align">Informes</h5>
+                    <p>Selecciona un informe</p>
+                    <div class="field label suffix border small">
+                        <select v-model="selectedProcedure" v-on:change="updateProcedure()">
+                            <option value="0">[Selecciona uno ...]</option>
+                            <option v-for="item in procedures" v-bind:value="item.Id_Procedimiento_Informe">{{item.Nombre}}</option>
+                        </select>
+                        <label>Informe</label>
+                        <i>arrow_drop_down</i>
+                    </div>
+                    <div v-show="parsProcedure.parsLen > 0">
+                        <p>Completa los parámetros</p>
+                        <br />
+                        <div v-for="item in parsProcedure.pars">
+                            <div v-if="item.visible" class="field label border">
+                                <input v-bind:type="item.type" v-model="item.value" />
+                                <label>{{formatName(item.parameter)}}</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div v-show="selectedProcedure != 0" class="center-align">
+                        <br />
+                        <button v-on:click="execProcedure()">Ejecutar informe</button>
+                        <br />
+                        <p v-show="parsProcedure.result != null">
+                            {{parsProcedure.result}}
+                        </p>
+                    </div>
+                </div>
+            </article>
+        </div>
+        <div class="s1 m2 l3"></div>
+    </div>
+</main>

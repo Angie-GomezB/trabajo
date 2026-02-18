@@ -1,0 +1,125 @@
+﻿<main class="large-padding grid" >
+    <div class="s12 m1 l1"></div>
+    <div class="s12 m10 l10">
+        <article>
+            <img class="responsive small" src="./img/background/users.jpg">
+            <div class="grid">
+                <div class="s3 m3 l3">
+                    <nav v-show="mode > 0">
+                        <button class="circle transparent small" v-on:click="back()">
+                            <i>arrow_back</i>
+                            <div class="tooltip right">Regresar</div>
+                        </button>
+                    </nav>
+                </div>
+                <div class="s6 m6 l6 center-align">
+                    <h4 v-show="mode == 0" class="small">Administración de Usuarios</h4>
+                    <h4 v-show="mode == 1" class="small">Nuevo Usuario</h4>
+                    <h4 v-show="mode == 2" class="small">Ediar Usuario</h4>
+                </div>
+            </div>
+            
+            <!--TABLA DE USUARIOS-->
+            <div v-if="mode == 0">
+                <div class="right-align">
+                    <button v-on:click="iniNewUser()">
+                        <i>add</i>
+                        <span>Agregar Usuario</span>
+                    </button>
+                    <br />
+                </div>
+                <div>
+                    <br />
+                    <nav class="no-space">
+                        <div class="max field border label">
+                            <input v-model="userFilter.username" v-on:keyup.enter="getUsers(false)">
+                            <label>Usuarios</label>
+                        </div>
+                        <button v-on:click="getUsers(false)" class="large right-round">
+                            <i>search</i>
+                            Buscar
+                        </button>
+                    </nav>
+                    <br />
+                </div>
+                <ul class="list border">
+                    <li v-for="item in users">
+                        <div class="max">
+                            {{item.UserName}}
+                            <label v-for="sitem in item.Roles"><label class="chip fill">{{sitem}}</label></label>
+                        </div>
+                        <button class="circle transparent small" v-on:click="iniEditUser(item)">
+                            <i>edit</i>
+                            <div class="tooltip top">Editar</div>
+                        </button>
+                        <button class="circle transparent small" v-on:click="deleteUser(item)">
+                            <i>delete</i>
+                            <div class="tooltip top">Eliminar</div>
+                        </button>
+                    </li>
+                </ul>
+                <div v-show="progress.p0" class="large-padding">
+                    <progress class="wavy"></progress>
+                </div>
+                <div v-show="!progress.p0 && this.userFilter.next" class="large-padding center-align">
+                    <button class="border" v-on:click="getUsers(true)">
+                        <i>refresh</i>
+                        <span>Cartgar mas resultados</span>
+                    </button>
+                </div>
+            </div>
+            <!-- EDIAR/NUEVO USUARIO-->
+            <div v-if="mode == 1 || mode == 2">
+                <div class="grid">
+                    <div class="s1 m3 l3"></div>
+                    <div class="s1 m6 l6">
+                        <br /><br />
+                        <div class="field label suffix border prefix" v-bind:class="{'invalid': newUserVaildator['username'] != null}">
+                            <i>account_circle</i>
+                            <input type="text" v-model="newUser.username" v-bind:disabled="mode == 1? null: true" />
+                            <label>Usuario</label>
+                            <span v-if="newUserVaildator['username'] != null" class="error">{{newUserVaildator['username']}}</span>
+                        </div>
+                        <div v-if="mode == 1" class="field label suffix border prefix" v-bind:class="{'invalid': newUserVaildator['password'] != null}">
+                            <i>password</i>
+                            <input type="password" v-model="newUser.password" />
+                            <label>Contraseña</label>
+                            <span v-if="newUserVaildator['password'] != null" class="error">{{newUserVaildator['password']}}</span>
+                        </div>
+                        <!--<div class="field label suffix border prefix" v-bind:class="{'invalid': newUserVaildator['email'] != null}">
+                        <i>email</i>
+                        <input type="text" v-model="newUser.email" />
+                        <label>Correo</label>
+                        <span v-if="newUserVaildator['email'] != null" class="error">{{newUserVaildator['email']}}</span>
+                    </div>-->
+                        <div>
+
+                            <fieldset>
+
+                                <legend>Roles</legend>
+                                <ul class="list border">
+                                    <li v-for="role in roles">
+                                        <label class="checkbox">
+                                            <input type="checkbox" v-model="role.selected">
+                                            <span>{{role.Name}}</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </fieldset>
+                        </div>
+                        <div class="large-padding center-align">
+                            <button v-if="mode == 2" v-on:click="upadteUser()">
+                                <i>save</i>
+                                <span>Guardar</span>
+                            </button>
+                            <button v-if="mode == 1" v-on:click="createUser()">
+                                <i>save</i>
+                                <span>Guardar</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+</main>

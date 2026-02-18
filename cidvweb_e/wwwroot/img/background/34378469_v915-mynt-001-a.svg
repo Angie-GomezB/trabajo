@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 27.5.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1200 1200" style="enable-background:new 0 0 1200 1200;" xml:space="preserve">
+<g id="Background">
+	<rect style="fill:#F5FAFF;" width="1200" height="1200"/>
+</g>
+<g id="Graphic_elements">
+	<g>
+		<defs>
+			<rect id="SVGID_1_" width="1200" height="1200"/>
+		</defs>
+		<clipPath id="SVGID_00000141435539314111846220000012475185200724786605_">
+			<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+		</clipPath>
+		
+			<linearGradient id="SVGID_00000052099638703963830470000005485722047474186943_" gradientUnits="userSpaceOnUse" x1="301.8312" y1="2843.1094" x2="301.8312" y2="2646.5642" gradientTransform="matrix(1 0 0 -1 0 3846.5244)">
+			<stop  offset="0" style="stop-color:#0D2333"/>
+			<stop  offset="0.0244" style="stop-color:#0F2738"/>
+			<stop  offset="0.1349" style="stop-color:#183449"/>
+			<stop  offset="0.2718" style="stop-color:#1E3D54"/>
+			<stop  offset="0.4647" style="stop-color:#21435B"/>
+			<stop  offset="1" style="stop-color:#22445D"/>
+		</linearGradient>
+		
+			<polygon style="clip-path:url(#SVGID_00000141435539314111846220000012475185200724786605_);fill:url(#SVGID_00000052099638703963830470000005485722047474186943_);" points="
+			301.836,1003.484 301.846,1003.47 301.826,1003.444 301.816,1003.458 		"/>
+		<g style="clip-path:url(#SVGID_00000141435539314111846220000012475185200724786605_);">
+			<polygon style="fill:#112840;" points="1206.756,256.792 810.747,350.834 810.747,273.298 1206.756,179.256 1206.756,141.499 
+				260.867,366.124 1206.756,519.782 			"/>
+			<polygon style="fill:#40D1BE;" points="1206.756,179.256 810.747,273.298 810.747,350.834 1206.756,256.792 			"/>
+			<polygon style="fill:#1D3A5E;" points="-6.756,-4 -6.756,429.678 260.867,366.124 1206.756,141.499 1206.756,-4 			"/>
+		</g>
+		<polygon style="clip-path:url(#SVGID_00000141435539314111846220000012475185200724786605_);fill:#1D3A5E;" points="
+			1071.306,1207.217 1071.6,1200.291 -9.712,1091.229 -9.712,1207.217 		"/>
+	</g>
+</g>
+</svg>

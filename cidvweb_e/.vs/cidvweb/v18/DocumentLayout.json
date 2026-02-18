@@ -1,0 +1,210 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\asus\\Desktop\\SERLEFIN\\cidvweb_e\\cidvweb_e\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{DECBF2DF-6E45-4F7E-BEE3-07BDC7D3BD96}|cidvweb.csproj|c:\\users\\asus\\desktop\\serlefin\\cidvweb_e\\cidvweb_e\\wwwroot\\web\\clientes_bca\\clientes.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DECBF2DF-6E45-4F7E-BEE3-07BDC7D3BD96}|cidvweb.csproj|solutionrelative:wwwroot\\web\\clientes_bca\\clientes.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DECBF2DF-6E45-4F7E-BEE3-07BDC7D3BD96}|cidvweb.csproj|c:\\users\\asus\\desktop\\serlefin\\cidvweb_e\\cidvweb_e\\wwwroot\\web\\clientes_bca\\clientes.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{DECBF2DF-6E45-4F7E-BEE3-07BDC7D3BD96}|cidvweb.csproj|solutionrelative:wwwroot\\web\\clientes_bca\\clientes.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DECBF2DF-6E45-4F7E-BEE3-07BDC7D3BD96}|cidvweb.csproj|c:\\users\\asus\\desktop\\serlefin\\cidvweb_e\\cidvweb_e\\wwwroot\\web\\facturas_bca\\facturas.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DECBF2DF-6E45-4F7E-BEE3-07BDC7D3BD96}|cidvweb.csproj|solutionrelative:wwwroot\\web\\facturas_bca\\facturas.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DECBF2DF-6E45-4F7E-BEE3-07BDC7D3BD96}|cidvweb.csproj|c:\\users\\asus\\desktop\\serlefin\\cidvweb_e\\cidvweb_e\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DECBF2DF-6E45-4F7E-BEE3-07BDC7D3BD96}|cidvweb.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DECBF2DF-6E45-4F7E-BEE3-07BDC7D3BD96}|cidvweb.csproj|c:\\users\\asus\\desktop\\serlefin\\cidvweb_e\\cidvweb_e\\wwwroot\\css\\own\\colors.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{DECBF2DF-6E45-4F7E-BEE3-07BDC7D3BD96}|cidvweb.csproj|solutionrelative:wwwroot\\css\\own\\colors.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DECBF2DF-6E45-4F7E-BEE3-07BDC7D3BD96}|cidvweb.csproj|c:\\users\\asus\\desktop\\serlefin\\cidvweb_e\\cidvweb_e\\wwwroot\\index.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{DECBF2DF-6E45-4F7E-BEE3-07BDC7D3BD96}|cidvweb.csproj|solutionrelative:wwwroot\\index.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DECBF2DF-6E45-4F7E-BEE3-07BDC7D3BD96}|cidvweb.csproj|c:\\users\\asus\\desktop\\serlefin\\cidvweb_e\\cidvweb_e\\wwwroot\\indexconfig.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{DECBF2DF-6E45-4F7E-BEE3-07BDC7D3BD96}|cidvweb.csproj|solutionrelative:wwwroot\\indexconfig.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DECBF2DF-6E45-4F7E-BEE3-07BDC7D3BD96}|cidvweb.csproj|c:\\users\\asus\\desktop\\serlefin\\cidvweb_e\\cidvweb_e\\wwwroot\\l\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DECBF2DF-6E45-4F7E-BEE3-07BDC7D3BD96}|cidvweb.csproj|solutionrelative:wwwroot\\l\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DECBF2DF-6E45-4F7E-BEE3-07BDC7D3BD96}|cidvweb.csproj|c:\\users\\asus\\desktop\\serlefin\\cidvweb_e\\cidvweb_e\\wwwroot\\l\\index.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{DECBF2DF-6E45-4F7E-BEE3-07BDC7D3BD96}|cidvweb.csproj|solutionrelative:wwwroot\\l\\index.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DECBF2DF-6E45-4F7E-BEE3-07BDC7D3BD96}|cidvweb.csproj|c:\\users\\asus\\desktop\\serlefin\\cidvweb_e\\cidvweb_e\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{DECBF2DF-6E45-4F7E-BEE3-07BDC7D3BD96}|cidvweb.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DECBF2DF-6E45-4F7E-BEE3-07BDC7D3BD96}|cidvweb.csproj|c:\\users\\asus\\desktop\\serlefin\\cidvweb_e\\cidvweb_e\\wwwroot\\web\\informes\\informes.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DECBF2DF-6E45-4F7E-BEE3-07BDC7D3BD96}|cidvweb.csproj|solutionrelative:wwwroot\\web\\informes\\informes.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            }
+          ]
+        },
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "facturas.html",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\SERLEFIN\\cidvweb_e\\cidvweb_e\\wwwroot\\web\\facturas_bca\\facturas.html",
+              "RelativeDocumentMoniker": "wwwroot\\web\\facturas_bca\\facturas.html",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\SERLEFIN\\cidvweb_e\\cidvweb_e\\wwwroot\\web\\facturas_bca\\facturas.html",
+              "RelativeToolTip": "wwwroot\\web\\facturas_bca\\facturas.html",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAACQAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2026-01-27T20:23:22.724Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "clientes.html",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\SERLEFIN\\cidvweb_e\\cidvweb_e\\wwwroot\\web\\clientes_bca\\clientes.html",
+              "RelativeDocumentMoniker": "wwwroot\\web\\clientes_bca\\clientes.html",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\SERLEFIN\\cidvweb_e\\cidvweb_e\\wwwroot\\web\\clientes_bca\\clientes.html",
+              "RelativeToolTip": "wwwroot\\web\\clientes_bca\\clientes.html",
+              "ViewState": "AgIAAB4DAAAAAAAAAAAmwEIDAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2026-01-30T04:48:34.027Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "clientes.js",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\SERLEFIN\\cidvweb_e\\cidvweb_e\\wwwroot\\web\\clientes_bca\\clientes.js",
+              "RelativeDocumentMoniker": "wwwroot\\web\\clientes_bca\\clientes.js",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\SERLEFIN\\cidvweb_e\\cidvweb_e\\wwwroot\\web\\clientes_bca\\clientes.js",
+              "RelativeToolTip": "wwwroot\\web\\clientes_bca\\clientes.js",
+              "ViewState": "AgIAADECAAAAAAAAAAAuwFUCAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-01-29T21:24:04.366Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "indexConfig.js",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\SERLEFIN\\cidvweb_e\\cidvweb_e\\wwwroot\\indexConfig.js",
+              "RelativeDocumentMoniker": "wwwroot\\indexConfig.js",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\SERLEFIN\\cidvweb_e\\cidvweb_e\\wwwroot\\indexConfig.js",
+              "RelativeToolTip": "wwwroot\\indexConfig.js",
+              "ViewState": "AgIAAFEAAAAAAAAAAAAAAGAAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-02-13T08:08:26.58Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "index.js",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\SERLEFIN\\cidvweb_e\\cidvweb_e\\wwwroot\\index.js",
+              "RelativeDocumentMoniker": "wwwroot\\index.js",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\SERLEFIN\\cidvweb_e\\cidvweb_e\\wwwroot\\index.js",
+              "RelativeToolTip": "wwwroot\\index.js",
+              "ViewState": "AgIAAFoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-02-13T08:08:29.058Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\SERLEFIN\\cidvweb_e\\cidvweb_e\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\SERLEFIN\\cidvweb_e\\cidvweb_e\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAJsBAAAAAAAAAAAewK0BAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-23T14:32:28.395Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "colors.css",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\SERLEFIN\\cidvweb_e\\cidvweb_e\\wwwroot\\css\\own\\colors.css",
+              "RelativeDocumentMoniker": "wwwroot\\css\\own\\colors.css",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\SERLEFIN\\cidvweb_e\\cidvweb_e\\wwwroot\\css\\own\\colors.css",
+              "RelativeToolTip": "wwwroot\\css\\own\\colors.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-02-09T17:00:47.737Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\SERLEFIN\\cidvweb_e\\cidvweb_e\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\SERLEFIN\\cidvweb_e\\cidvweb_e\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-01-27T15:04:49.657Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "index.html",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\SERLEFIN\\cidvweb_e\\cidvweb_e\\wwwroot\\l\\index.html",
+              "RelativeDocumentMoniker": "wwwroot\\l\\index.html",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\SERLEFIN\\cidvweb_e\\cidvweb_e\\wwwroot\\l\\index.html",
+              "RelativeToolTip": "wwwroot\\l\\index.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2026-02-09T16:59:28.002Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "index.js",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\SERLEFIN\\cidvweb_e\\cidvweb_e\\wwwroot\\l\\index.js",
+              "RelativeDocumentMoniker": "wwwroot\\l\\index.js",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\SERLEFIN\\cidvweb_e\\cidvweb_e\\wwwroot\\l\\index.js",
+              "RelativeToolTip": "wwwroot\\l\\index.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-02-09T16:59:39.406Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "informes.html",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\SERLEFIN\\cidvweb_e\\cidvweb_e\\wwwroot\\web\\informes\\informes.html",
+              "RelativeDocumentMoniker": "wwwroot\\web\\informes\\informes.html",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\SERLEFIN\\cidvweb_e\\cidvweb_e\\wwwroot\\web\\informes\\informes.html",
+              "RelativeToolTip": "wwwroot\\web\\informes\\informes.html",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAkwCkAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2026-01-28T20:48:52.865Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

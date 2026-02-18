@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./img/ico/ico-serlefin.png" rel="Shortcut Icon" type="image/png" />
+    <title>Inicio</title>
+    <link href="./css/lib/beer.min.css" rel="stylesheet">
+    <script type="module" src="./js/lib/beer.min.js"></script>
+    <script type="module" src="./js/lib/material-dynamic-colors.min.js"></script>
+    <link href="./css/own/colors.css" rel="stylesheet">
+    <link href="./css/own/main.css" rel="stylesheet">
+    <script src="./js/lib/vue.global.js"></script>
+    <script src="./js/lib/axios.min.js"></script>
+    <script src="./js/own/axios-helper.js"></script>
+</head>
+<body>
+    <div id="loginContentDiv" style=" background-image: url('./img/background/34378469_v915-mynt-001-a.svg'); background-attachment: fixed; background-repeat: no-repeat; background-size: cover;">
+        <div class="grid no-space">
+            <div class="s12 m3 l4"></div>
+            <div class="s12 m6 l4">
+                <div class="large-padding" style="min-height: 100vh;">
+                    <div class="padding absolute center middle" style="width: 100%; margin: 0px auto">
+                        <article class="large-padding center-align round">
+                            <img class="responsive small top-round" src="./img/background/logo_nuevo_2.png">
+                            <div class="padding">
+                                <h5>CIDV</h5>
+                                <div class="left-align">Inicio de Sesión</div>
+                                <div class="field label border prefix">
+                                    <i>account_circle</i>
+                                    <input type="text" v-model="loginData.username">
+                                    <label>Usuario</label>
+                                </div>
+                                <div class="field label border prefix">
+                                    <i>password</i>
+                                    <input type="password" v-model="loginData.password" v-on:keyup.enter="login()">
+                                    <label>Contraseña</label>
+                                </div>
+                                <button v-on:click="login()">Acceder</button>
+                            </div>
+                        </article>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="divProcess" class="progressBackgroundFilter" style="display: none"><div><progress class="circle large"></progress></div></div>
+    <div id="snSuccess" class="snackbar" onclick="hideSuccess()"></div>
+    <div id="snError" class="snackbar error" onclick="hideError()"></div>
+    <script src="./login.js?v=1" type="text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,432 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Prefactura</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../css/lib/beer.min.css" rel="stylesheet">
+    <script type="module" src="../js/lib/beer.min.js"></script>
+    <script type="module" src="../js/lib/material-dynamic-colors.min.js"></script>
+    <link href="../css/own/main.css" rel="stylesheet">
+    <script src="../js/lib/vue.global.js"></script>
+    <script src="../js/lib/axios.min.js"></script>
+    <script src="../js/own/axios-helper.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.4.0/exceljs.min.js"></script>
+    <script src="../js/lib/filesaver.js"></script>
+</head>
+<body>
+    <div id="indexMainDiv">
+        <!--(0) PANTALLA PRINCIPAL-->
+        <div v-if="mode == 0 && pfsData != null" class="grid padding" style="height: 100vh">
+            <div class="s12 m2 l3"></div>
+            <div class="s12 m8 l6" style="width: 100%">
+                <article class="no-padding">
+                    <img class="responsive small" src="../img/landing/header2x_png.png">
+                    <div class="padding">
+                        <h5>Pre Factura {{pfsData.header.Numero_Prefactura}}</h5>
+                        <p>Estimado cliente FedEx. Hemos generado la prefactura <b>{{pfsData.header.Numero_Prefactura}}</b> con los siguientes datos</p>
+                        <ul class="list border">
+                            <li>
+                                <button class="circle transparent">
+                                    <i>account_circle</i>
+                                </button>
+                                <div class="max">
+                                    <h6 class="small">Cliente</h6>
+                                </div>
+                                <h6 class="small"><b>{{pfsData.header.Nombre}}</b></h6>
+                            </li>
+                            <li>
+                                <button class="circle transparent">
+                                    <i>id_card</i>
+                                </button>
+                                <div class="max">
+                                    <h6 class="small">RTN</h6>
+                                </div>
+                                <h6 class="small"><b>{{pfsData.header.RTN}}</b></h6>
+                            </li>
+                            <li>
+                                <button class="circle transparent">
+                                    <i>tag</i>
+                                </button>
+                                <div class="max">
+                                    <h6 class="small">Cantidad de Guias</h6>
+                                </div>
+                                <h6 class="small"><b>{{this.pfsData.detail.length}}</b></h6>
+                            </li>
+                            <li>
+                                <button class="circle transparent">
+                                    <i>attach_money</i>
+                                </button>
+                                <div class="max">
+                                    <h6 class="small">Total a Facturar</h6>
+                                </div>
+                                <h6 class="small"><b>{{formatoMoneda(pfsData.header.Total)}}</b></h6>
+                            </li>
+                            <li>
+                                <button class="circle transparent">
+                                </button>
+                                <div class="max">
+                                    <div v-for="item in pfsData.summary" class="row">
+                                        <div class="max">{{item.Cargo}}</div>
+                                        <label><b>{{formatoMoneda(item.Total)}}</b></label>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <hr />
+                        <p class="center-align">El datalle de la prefactura lo puede ver en alguna de las siguientes opciones</p>
+                        <div class="grid">
+                            <div v-if="this.pfsData.detail.length < 500" class="s12 m6 l6 center-align">
+                                <button v-on:click="viewFile()">
+                                    <i>table_eye</i>
+                                    <span>Ver en pantalla</span>
+                                </button>
+                            </div>
+                            <div class="s12 m6 l6 center-align">
+                                <button v-on:click="exportFile()">
+                                    <i>download</i>
+                                    <span>Descargar archivo</span>
+                                </button>
+                            </div>
+                        </div>
+                        <p class="center-align">Ahora puede seleccionar una de las siguientes opciones para continuar con el proceso</p>
+                        <div class="grid">
+                            <div class="s12 m4 l4">
+                                <article class="medium middle-align center-align primary" style="cursor: pointer" v-on:click="option01()">
+                                    <div>
+                                        <i class="extra">check</i>
+                                        <h5>Aprobar prefactura</h5>
+                                        <p>Si todo es correcto, apruebe la prefactura para iniciar el proceso de facturación</p>
+                                        <div class="space"></div>
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="s12 m4 l4">
+                                <article class="medium middle-align center-align secondary" style="cursor: pointer" v-on:click="option02()">
+                                    <div>
+                                        <i class="extra">edit</i>
+                                        <h5>Modificar prefactura</h5>
+                                        <p>Haga modificaciones sobre la prefactura antes de iniciar el proceso de facturación</p>
+                                        <div class="space"></div>
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="s12 m4 l4">
+                                <article class="medium middle-align center-align tertiary" style="cursor: pointer" v-on:click="option03()">
+                                    <div>
+                                        <i class="extra">question_mark</i>
+                                        <h5>Otros</h5>
+                                        <p>Por favor escríbanos sus inquietudes y lo contactaremos para solucionarlas</p>
+                                        <div class="space"></div>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="s1 m2 l3"></div>
+        </div>
+        <!--(1) VISTA DE GUIAS-->
+        <div v-if="mode == 1" class="padding" style="height: 100vh">
+            <div>
+                <article class="no-padding">
+                    <img class="responsive small" src="../img/landing/header2x_png.png">
+                    <div class="absolute top left right padding white-text">
+                        <nav>
+                            <button class="circle transparent" v-on:click="back()">
+                                <i>arrow_back</i>
+                            </button>
+                        </nav>
+                    </div>
+                    <div class="padding">
+                        <div class="scroll surface" style="height: calc(100vh - 180px)">
+                            <table class="border stripes">
+                                <thead class="fixed">
+                                    <tr>
+                                        <th>Guía</th>
+                                        <th>Fecha Envío</th>
+                                        <th>Ciudad Remitente</th>
+                                        <th>Nombre Remitente</th>
+                                        <th>Empresa Remitente</th>
+                                        <th>Ciudad Destinatario</th>
+                                        <th>Nombre Destinatario</th>
+                                        <th>Empresa Destinatario</th>
+                                        <th>Servicio</th>
+                                        <th>Piezas</th>
+                                        <th>Peso</th>
+                                        <th>Unidad Peso</th>
+                                        <th>Largo</th>
+                                        <th>Ancho</th>
+                                        <th>Alto</th>
+                                        <th>Unidad Dimensiones</th>
+                                        <th>Total Guia</th>
+                                        <th>Volumen</th>
+                                        <th>Fecha Entrega</th>
+                                        <th>Referencia 1</th>
+                                        <th>Referencia 2</th>
+                                        <th>Referencia 3</th>
+                                        <th>Referencia 4</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr v-for="item in pfsData.detail">
+                                        <td>{{item["Guia"]}}</td>
+                                        <td>{{item["Fecha_Envio"]}}</td>
+                                        <td>{{item["Ciudad_Remitente"]}}</td>
+                                        <td>{{item["Nombre_Remitente"]}}</td>
+                                        <td>{{item["Empresa_Remitente"]}}</td>
+                                        <td>{{item["Ciudad_Destinatario"]}}</td>
+                                        <td>{{item["Nombre_Destinatario"]}}</td>
+                                        <td>{{item["Empresa_Destinatario"]}}</td>
+                                        <td>{{item["Servicio"]}}</td>
+                                        <td>{{item["Piezas"]}}</td>
+                                        <td>{{item["Peso"]}}</td>
+                                        <td>{{item["Unidad_Media_Peso"]}}</td>
+                                        <td>{{item["Largo"]}}</td>
+                                        <td>{{item["Ancho"]}}</td>
+                                        <td>{{item["Alto"]}}</td>
+                                        <td>{{item["Unidad_De_Medida_Dimensiones"]}}</td>
+                                        <td>{{item["Total_Guia"]}}</td>
+                                        <td>{{item["Volumen"]}}</td>
+                                        <td>{{item["Fecha_Entrega"]}}</td>
+                                        <td>{{item["Referencia 1"]}}</td>
+                                        <td>{{item["Referencia 2"]}}</td>
+                                        <td>{{item["Referencia 3"]}}</td>
+                                        <td>{{item["Referencia 4"]}}</td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+        <!--(2) APROBACION EXPRESS-->
+        <div v-if="mode == 2 && pfsData != null" class="grid padding" style="height: 100vh">
+            <div class="s12 m2 l3"></div>
+            <div class="s12 m8 l6" style="width: 100%">
+                <article class="no-padding">
+                    <img class="responsive small" src="../img/landing/header2x_png.png">
+                    <div class="absolute top left right padding white-text">
+                        <nav>
+                            <button class="circle transparent" v-on:click="back()">
+                                <i>arrow_back</i>
+                            </button>
+                        </nav>
+                    </div>
+                    <div class="padding">
+                        <h5 class="center-align">Aprobar prefactura</h5>
+                        <p class="center-align">Por favor complete la siguiente información</p>
+
+                        <div class="field label border prefix" v-bind:class="{'invalid': formValidator['Orden_Compra'] != null}">
+                            <i>confirmation_number</i>
+                            <input type="text" v-model="aproveData.Orden_Compra" />
+                            <label>Número de orden de compra (*)</label>
+                            <span v-if="formValidator['Orden_Compra'] != null" class="error">{{formValidator['Orden_Compra']}}</span>
+                        </div>
+                        <div class="field label border prefix" v-bind:class="{'invalid': formValidator['Fecha_Orden_Compra'] != null}">
+                            <i>date_range</i>
+                            <input type="date" v-model="aproveData.Fecha_Orden_Compra" />
+                            <label>Fecha de referencia (*)</label>
+                            <span v-if="formValidator['Fecha_Orden_Compra'] != null" class="error">{{formValidator['Fecha_Orden_Compra']}}</span>
+                        </div>
+                        <div class="row">
+                            <fieldset class="max">
+                                <legend class="small">Archivo de orden de compra</legend>
+                                <div class="row">
+                                    <div class="max">
+                                        {{aproveData.Archivo}}
+                                    </div>
+                                    <div v-if="aproveData.Archivo != ''">
+                                        <button class="circle transparent" v-on:click="cancelFile('UPLOAD01')">
+                                            <i>close</i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <button class="large right-round prefix" v-on:click="openFileDialog('UPLOAD01')">
+                                <i>attach_file</i>
+                                Seleccionar
+                            </button>
+                        </div>
+                        <p>(*) Campo obligatorio</p>
+                        <div class="center-align padding">
+                            <button class="prefix" v-on:click="sendAprovedData()">Enviar</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+        </div>
+        <!--(3) APROBACION EDICION-->
+        <div v-if="mode == 3 && pfsData != null" class="grid padding" style="height: 100vh">
+            <div class="s12 m2 l3"></div>
+            <div class="s12 m8 l6" style="width: 100%">
+                <article class="no-padding">
+                    <img class="responsive small" src="../img/landing/header2x_png.png">
+                    <div class="absolute top left right padding white-text">
+                        <nav>
+                            <button class="circle transparent" v-on:click="back()">
+                                <i>arrow_back</i>
+                            </button>
+                        </nav>
+                    </div>
+                    <div class="padding">
+                        <h5 class="center-align">Modificar prefactura</h5>
+                        <p class="center-align">Por favor complete la siguiente información</p>
+
+                        <div class="field label border prefix" v-bind:class="{'invalid': formValidator['Orden_Compra'] != null}">
+                            <i>confirmation_number</i>
+                            <input type="text" v-model="aproveData.Orden_Compra" />
+                            <label>Número de orden de compra (*)</label>
+                            <span v-if="formValidator['Orden_Compra'] != null" class="error">{{formValidator['Orden_Compra']}}</span>
+                        </div>
+                        <div class="field label border prefix" v-bind:class="{'invalid': formValidator['Fecha_Orden_Compra'] != null}">
+                            <i>date_range</i>
+                            <input type="date" v-model="aproveData.Fecha_Orden_Compra" />
+                            <label>Fecha de referencia (*)</label>
+                            <span v-if="formValidator['Fecha_Orden_Compra'] != null" class="error">{{formValidator['Fecha_Orden_Compra']}}</span>
+                        </div>
+                        <p class="center-align" v-bind:class="{'error-text': formValidator['fileResult'] != null}">
+                            Por favor cargue el archivo con las modificaciones que que quiere realizar. Solo las siguientes columnas serán tenidas en cuenta: <br />
+                            "Incluir"<br />
+                            "Guia"<br />
+                            "Servicio Solicitado"<br />
+                            "Piezas Solicitadas"<br />
+                            "Peso Solicitado"<br />
+                            "Unidad Media Peso Solicitado"<br />
+                            "Largo Solicitado"<br />
+                            "Ancho Solicitado"<br />
+                            "Alto Solicitado"<br />
+                            "Unidad De Medida Dimensiones Solicitado"<br />
+                            "Total Guia Solicitado"<br />
+                        </p>
+                        <div class="row">
+                            <fieldset class="max" v-bind:class="{'error-text': formValidator['Datos'] != null}">
+                                <legend class="small">Archivo de guias (*)</legend>
+                                <div class="row">
+                                    <div v-if="fileResult != null" class="max">
+                                        {{fileResult.fileId + " - " +fileResult.fileResult}}
+                                    </div>
+                                    <div v-if="fileResult != null">
+                                        <button class="circle transparent" v-on:click="cancelFile('UPLOAD02')">
+                                            <i>close</i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <button class="large right-round prefix" v-on:click="openFileDialog('UPLOAD02')">
+                                <i>attach_file</i>
+                                Seleccionar
+                            </button>
+                        </div>
+                        <div class="row">
+                            <fieldset class="max">
+                                <legend class="small">Archivo de orden de compra</legend>
+                                <div class="row">
+                                    <div class="max">
+                                        {{aproveData.Archivo}}
+                                    </div>
+                                    <div v-if="aproveData.Archivo != ''">
+                                        <button class="circle transparent" v-on:click="cancelFile('UPLOAD01')">
+                                            <i>close</i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <button class="large right-round prefix" v-on:click="openFileDialog('UPLOAD01')">
+                                <i>attach_file</i>
+                                Seleccionar
+                            </button>
+                        </div>
+                        <div class="field textarea label border small">
+                            <textarea v-bind="aproveData.Observaciones"></textarea>
+                            <label>Observaciones</label>
+                        </div>
+                        <p>(*) Campo obligatorio</p>
+                        <div class="center-align padding">
+                            <button class="prefix" v-on:click="sendEditData()">Enviar</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+        <!--(4) OTROS-->
+        <div v-if="mode == 4 && pfsData != null" class="grid padding" style="height: 100vh">
+            <div class="s12 m2 l3"></div>
+            <div class="s12 m8 l6" style="width: 100%">
+                <article class="no-padding">
+                    <img class="responsive small" src="../img/landing/header2x_png.png">
+                    <div class="absolute top left right padding white-text">
+                        <nav>
+                            <button class="circle transparent" v-on:click="back()">
+                                <i>arrow_back</i>
+                            </button>
+                        </nav>
+                    </div>
+                    <div class="padding">
+                        <h5 class="center-align">Otros</h5>
+                        <p class="center-align">Por favor complete la siguiente información</p>
+
+                       
+                        <div class="field textarea label border large" v-bind:class="{'invalid': formValidator['Observaciones'] != null}">
+                            <textarea v-model="aproveData.Observaciones"></textarea>
+                            <label>Observaciones (*)</label>
+                        </div>
+                        <p>(*) Campo obligatorio</p>
+                        <div class="center-align padding">
+                            <button class="prefix" v-on:click="sendOtherData()">Enviar</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+        <!--(200) YA ESTA GESTIONADO-->
+        <div v-if="mode == 200" class="grid padding" style="height: 100vh">
+            <div class="s12 m2 l3"></div>
+            <div class="s12 m8 l6" style="width: 100%">
+                <article class="no-padding">
+                    <img class="responsive small" src="../img/landing/header2x_png.png">
+                    <div class="padding">
+                        <h5 class="center-align">Gracias. Vamos a procesar su respuesta</h5>
+                        <p class="center-align">En caso de requerir mas información lo estaremos contactando por correo electrónico</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+        <!--(404) NO ENCONTRADO-->
+        <div v-if="mode == 404" class="grid padding" style="height: 100vh">
+            <div class="s12 m2 l3"></div>
+            <div class="s12 m8 l6" style="width: 100%">
+                <article class="no-padding">
+                    <img class="responsive small" src="../img/landing/header2x_png.png">
+                    <div class="padding">
+                        <h5 class="center-align">No se encuentra la prefactura</h5>
+                        <p class="center-align">Código del error: {{token}}</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+        <input type="file" id="fileUpload" style="height:1.2em; width:1.2em; display:none;" v-on:change="handleChangeFile" />
+    </div>
+    <div id="divProcess" class="progressBackgroundFilter" style="display: none"><div><progress class="circle large"></progress></div></div>
+    <div id="snSuccess" class="snackbar" onclick="hideSuccess()"></div>
+    <div id="snError" class="snackbar error" onclick="hideError()"></div>
+    <div id="divConfirmOverlay" class="overlay blur"></div>
+    <dialog id="divConfirm">
+        <h5 id="lbConfirmTitle"></h5>
+        <div id="lbConfirmMessage"></div>
+        <nav class="right-align no-space">
+            <button class="transparent link" id="btConfirmAccept"></button>
+            <button class="transparent link" id="btConfirmCancel"></button>
+        </nav>
+    </dialog>
+    <script src="./index.js?v=3" type="text/javascript"></script>
+</body>
+</html>

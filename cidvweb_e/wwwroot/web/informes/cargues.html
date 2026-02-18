@@ -1,0 +1,65 @@
+﻿<main>
+    <div v-if="mode == 0" class="grid">
+        <div class="s12 m1 l1"></div>
+        <div class="s12 m10 l10" style="width: 100%">
+            <article class="no-padding" style="min-height: calc(100vh - 5rem)">
+                <img class="responsive small" src="./img/background/white-blue-clouds-arrangement.jpg">
+                <div class="padding">
+                    <h5 class="center-align">Carga de datos</h5>
+                    <p>Selecciona un proceso</p>
+                    <div class="field label suffix border small">
+                        <select v-model="selectedProcedure" v-on:change="updateProcedure()">
+                            <option value="0">[Selecciona uno ...]</option>
+                            <option v-for="item in procedures" v-bind:value="item.Id_Procedimiento_Informe">{{item.Nombre}}</option>
+                        </select>
+                        <label>Proceso</label>
+                        <i>arrow_drop_down</i>
+                    </div>
+                    <div v-show="selectedProcedure != 0">
+                        <p>Selecciona un archivo</p>
+                        <div class="row bottom-align">
+                            <fieldset class="max">
+                                <legend class="small">Archivo</legend>
+                                <div class="row">
+                                    <div class="max">
+                                        {{parsProcedure.fileName}}
+                                    </div>
+                                    <div v-if="parsProcedure.fileName != null">
+                                        <button class="circle transparent small" v-on:click="cancelFile()">
+                                            <i>close</i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <button class="right-round prefix" v-on:click="openFileDialog()">
+                                <i>attach_file</i>
+                                Seleccionar
+                            </button>
+                        </div>
+                    </div>
+                    <div v-show="parsProcedure.parsLen > 0">
+                        <p>Completa los parámetros</p>
+                        <br />
+                        <div v-for="item in parsProcedure.pars">
+                            <div v-if="item.visible" class="field label border">
+                                <input v-bind:type="item.type" v-model="item.value" />
+                                <label>{{formatName(item.parameter)}}</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div v-show="selectedProcedure != 0" class="center-align">
+                        <br />
+                        <button v-on:click="execProcedure()">Cargar datos</button>
+                        <br />
+                        <p v-show="parsProcedure.result != null">
+                            {{parsProcedure.result}}
+                        </p>
+                    </div>
+                </div>
+            </article>
+        </div>
+        <div class="s1 m2 l3"></div>
+    </div>
+    <input type="file" id="fileUpload" style="height:1.2em; width:1.2em; display:none;" v-on:change="handleChangeFile" accept=".xlsx, .xls, .txt, .csv"/>
+</main>

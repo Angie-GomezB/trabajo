@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Consulta TRM - DIAN</title>
+    <link rel="Shortcut Icon" href="../IMG/ico-serlefin.png" type="image/png">
+    <link rel="stylesheet" href="../CSS/lib/beer.min.css">
+    <script src="../JS_LIB/vue/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div id="trmDiv">
+        <!-- HEADER -->
+        <header class="fixed">
+            <div></div>
+            <div></div>
+            <nav>
+                <h5 class="center">📊 Consulta TRM - DIAN</h5>
+            </nav>
+        </header>
+
+        <main class="responsive">
+            <div class="large-space"></div>
+            <div class="large-space"></div>
+
+            <div class="margin">
+                <!-- ESTADÍSTICAS -->
+                <div v-if="!cargando && datos.length > 0" class="grid">
+                    <div class="s12 m6">
+                        <article class="primary border round">
+                            <div class="padding center-align">
+                                <i class="extra large-text">receipt_long</i>
+                                <h3>{{ datos.length }}</h3>
+                                <p>Total Registros</p>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="s12 m6">
+                        <article class="secondary border round">
+                            <div class="padding center-align">
+                                <i class="extra large-text">attach_money</i>
+                                <h3>$ {{ ultimaTRM }}</h3>
+                                <p>Última TRM</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- BOTONES -->
+                <div class="space"></div>
+                <div class="row">
+                    <button class="primary"
+                            @click="cargarDatos"
+                            :disabled="cargando">
+                        <i>{{ cargando ? 'hourglass_empty' : 'refresh' }}</i>
+                        <span>{{ cargando ? 'Cargando...' : 'Actualizar Datos' }}</span>
+                    </button>
+                    <button class="border" @click="volver">
+                        <i>arrow_back</i>
+                        <span>Volver</span>
+                    </button>
+                </div>
+
+                <!-- TABLA DE DATOS -->
+                <div class="space"></div>
+                <article class="border round">
+                    <h6 class="small-padding">📋 Historial de TRM</h6>
+
+                    <!-- LOADING -->
+                    <div v-if="cargando" class="padding center-align">
+                        <progress class="circle large"></progress>
+                        <p>Cargando datos...</p>
+                    </div>
+
+                    <!-- ERROR -->
+                    <div v-if="error" class="padding">
+                        <div class="red white-text padding round">
+                            <i>error</i>
+                            <span>{{ error }}</span>
+                        </div>
+                    </div>
+
+                    <!-- TABLA -->
+                    <div v-if="!cargando && !error && datos.length > 0"
+                         class="scroll"
+                         style="max-height: 60vh;">
+                        <table class="border">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Fecha Expedición</th>
+                                    <th>Fecha Desde</th>
+                                    <th>Fecha Hasta</th>
+                                    <th>TRM (COP)</th>
+                                    <th>Fecha Registro</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="(item, index) in datos" :key="item.id">
+                                    <td>{{ index + 1 }}</td>
+                                    <td>{{ item.fechaExpedicion }}</td>
+                                    <td>{{ item.fechaDesde }}</td>
+                                    <td>{{ item.fechaHasta }}</td>
+                                    <td class="bold primary-text">$ {{ item.trm }}</td>
+                                    <td class="small-text">{{ formatearFecha(item.fechaCreacion) }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- SIN DATOS -->
+                    <div v-if="!cargando && !error && datos.length === 0"
+                         class="padding center-align">
+                        <i class="extra large-text">inbox</i>
+                        <p>No hay registros de TRM</p>
+                        <p class="small-text">Los datos se cargarán automáticamente desde Tampermonkey</p>
+                    </div>
+                </article>
+            </div>
+        </main>
+
+        <!-- SNACKBAR -->
+        <div class="snackbar"
+             :class="{ active: snackbar.mostrar, [snackbar.tipo]: true }">
+            <i>{{ snackbar.icono }}</i>
+            <span>{{ snackbar.mensaje }}</span>
+        </div>
+    </div>
+
+    <script type="module" src="../JS/lib/beer.min.js"></script>
+    <script type="module" src="../JS/lib/material-dynamic-colors.min.js"></script>
+    <script src="./trm.js"></script>
+</body>
+</html>
