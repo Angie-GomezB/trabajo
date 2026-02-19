@@ -44,14 +44,10 @@
                         <h5 class="primary-text" style="margin: 0 0 1px 0;">Gestión de Clientes</h5>
                         <p class="no-margin" style="margin: 0; font-size: 0.85rem;">Búsqueda y registro de clientes</p>
                     </div>
-                    <button class="secondary" @click="abrirFormularioNuevo" v-bind:disabled="cargandoTodos">
-                        <i>person_add</i>
-                        <span>Nuevo Cliente</span>
-                    </button>
                 </div>
 
                 <!-- Tabla con filtros en encabezados -->
-                <article class="border round" style="overflow: hidden;">
+                <article class="border round" style="overflow: hidden;background: #8681812d" ">
 
                     <!-- Loading inicial -->
                     <div v-if="cargandoTodos" class="center-align padding">
@@ -74,46 +70,45 @@
                         <div v-else>
                             <!-- Tabla con scroll interno -->
                             <!--
-                                calc breakdown:
-                                  100vh         = altura total de la pantalla
-                                  - 74px        = header (nav con logo)
-                                  - 4px         = margin-top del div buscar
-                                  - 52px        = fila titulo + boton "Nuevo Cliente"
-                                  - 4px         = margin-bottom de esa fila
-                                  - 2px         = border top del article
-                                  - 36px        = pie de tabla "Mostrando X de Y"
-                            -->
+                calc breakdown:
+                  100vh         = altura total de la pantalla
+                  - 74px        = header (nav con logo)
+                  - 4px         = margin-top del div buscar
+                  - 52px        = fila titulo + boton "Nuevo Cliente"
+                  - 4px         = margin-bottom de esa fila
+                  - 2px         = border top del article
+                  - 36px        = pie de tabla "Mostrando X de Y"
+            -->
                             <div id="tablaClientesScroll"
                                  style="max-height: calc(100vh - 172px); overflow-y: auto;"
                                  @scroll="onScrollTabla">
                                 <table class="border" style="width:100%;">
                                     <thead style="position: sticky; top: 0; z-index: 10; background: var(--surface);">
                                         <tr>
-                                            <th style="min-width:150px; padding: 4px 8px;">
-                                                <div class="field border no-margin" style="margin:0;">
-                                                    <input type="text"
-                                                           v-model="filtroIdFiscal"
-                                                           @input="aplicarFiltros"
-                                                           placeholder="ID Fiscal"
-                                                           maxlength="20"
-                                                           style="height:28px; font-size:0.80rem; padding: 3px 8px;">
-                                                </div>
+                                            <th style="min-width:140px; padding: 6px 8px; vertical-align: bottom;background: #8681812d">
+                                                <div style="font-size:0.75rem; color:var(--on-surface-variant); margin-bottom:3px;">ID Fiscal</div>
+                                                <input type="text"
+                                                       v-model="filtroIdFiscal"
+                                                       @input="aplicarFiltros"
+                                                       placeholder="ID Fiscal"
+                                                       maxlength="20"
+                                                       style="width:100%; height:26px; font-size:0.78rem; padding:2px 6px; border:1px solid var(--outline); border-radius:4px; background:var(--surface-container-low);">
                                             </th>
-                                            <th style="min-width:210px; padding: 4px 8px;">
-                                                <div class="field border no-margin" style="margin:0;">
-                                                    <input type="text"
-                                                           v-model="filtroNombre"
-                                                           @input="aplicarFiltros"
-                                                           placeholder="Nombre / Apellido"
-                                                           maxlength="200"
-                                                           style="height:28px; font-size:0.80rem; padding: 3px 8px;">
-                                                </div>
+                                            <th style="min-width:180px; padding: 6px 8px; vertical-align: bottom;background: #8681812d">
+                                                <div style="font-size:0.75rem; color:var(--on-surface-variant); margin-bottom:3px;">Nombre Cliente</div>
+                                                <input type="text"
+                                                       v-model="filtroNombre"
+                                                       @input="aplicarFiltros"
+                                                       placeholder="Nombre / Apellido"
+                                                       maxlength="200"
+                                                       style="width:100%; height:26px; font-size:0.78rem; padding:2px 6px; border:1px solid var(--outline); border-radius:4px; background:var(--surface-container-low);">
+
                                             </th>
-                                            <th style="min-width:170px; padding: 4px 8px; font-size:0.80rem;">Email</th>
-                                            <th style="min-width:110px; padding: 4px 8px; font-size:0.80rem;">Teléfono</th>
-                                            <th style="min-width:100px; padding: 4px 8px; font-size:0.80rem;">Ciudad</th>
-                                            <th class="center-align" style="min-width:75px; padding: 4px 8px; font-size:0.80rem;">Estado</th>
-                                            <th class="center-align" style="min-width:80px; padding: 4px 8px; font-size:0.80rem;">Acciones</th>
+                                            <th style="min-width: 120px; padding: 6px 8px; font-size: 0.80rem; vertical-align: bottom;background: #8681812d">Email</th>
+                                            <th style="min-width: 90px; padding: 6px 8px; font-size: 0.80rem; vertical-align: bottom;background: #8681812d">Teléfono</th>
+                                            <th style="min-width: 120px; padding: 6px 8px; font-size: 0.80rem; vertical-align: bottom;background: #8681812d">Ciudad</th>
+                                            <th class="center-align" style="min-width:80px; padding: 6px 8px; font-size:0.80rem; vertical-align: bottom;background: #8681812d">Estado</th>
+                                            <th class="center-align" style="min-width:80px; padding: 6px 8px; font-size:0.80rem; vertical-align: bottom;background: #8681812d">Acciones</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -138,19 +133,18 @@
                                         </tr>
 
                                         <!-- Filas de clientes (paginación virtual) -->
-                                        <tr v-for="c in clientesVisibles" v-bind:key="c.Id_Cliente"
-                                            style="font-size:0.80rem;">
+                                        <tr v-for="c in clientesVisibles" v-bind:key="c.Id_Cliente" style="font-size:0.80rem;">
                                             <td style="padding:4px 8px; line-height:1.3;">{{ c.Id_Fiscal }}</td>
                                             <td style="padding:4px 8px; line-height:1.3;">{{ nombreCompleto(c) }}</td>
                                             <td style="padding:4px 8px; line-height:1.3;">{{ c.email || '-' }}</td>
                                             <td style="padding:4px 8px; line-height:1.3;">{{ c.telefono || '-' }}</td>
                                             <td style="padding:4px 8px; line-height:1.3;">{{ c.ciudad || '-' }}</td>
                                             <td class="center-align" style="padding:4px 8px;">
-                                                <span v-if="esActivo(c)" class="chip small green">Activo</span>
-                                                <span v-else class="chip small red">Inactivo</span>
+                                                <span v-if="esActivo(c)" class="chip small green " style="background:#4caf50;color:#fff;font-size:0.65rem;padding:2px 7px;border-radius:10px;font-weight:600;white-space:nowrap;">Activo</span>
+                                                <span v-else class="chip small red" style="background:#4caf50;color:#fff;font-size:0.65rem;padding:2px 7px;border-radius:10px;font-weight:600;white-space:nowrap;">Inactivo</span>
                                             </td>
-                                            <td class="center-align" style="padding:4px 8px;">
-                                                <button class="small-round border" v-on:click="abrirFormularioEditar(c)" title="Editar">
+                                            <td class="center-align" style="padding:4px 6px; white-space:nowrap;">
+                                                <button class="small-round border" @click="abrirFormularioEditar(c)" title="Editar" style="width:28px;height:28px;min-width:28px;margin:0 2px;">
                                                     <i>edit</i>
                                                 </button>
                                             </td>
@@ -178,63 +172,7 @@
                 </article>
             </div>
             <!-- FIN PANTALLA BUSCAR -->
-            <!-- PANTALLA: CLIENTE ENCONTRADO -->
-            <div v-if="pantalla === 'encontrado' && clienteActual" class="margin">
-                <h5 class="primary-text">Cliente Encontrado</h5>
-                <div class="space"></div>
-
-                <article class="border round primary-container">
-                    <div class="row padding">
-                        <h6 class="max primary-text">{{ nombreCompleto(clienteActual) }}</h6>
-                        <button class="border" @click="verHistorialFacturas">
-                            <i>receipt</i>
-                            <span>Historial</span>
-                        </button>
-                        <button class="secondary" @click="abrirFormularioEditar(clienteActual)">
-                            <i>edit</i>
-                            <span>Editar</span>
-                        </button>
-                        <button class="tertiary" @click="irAFacturas">
-                            <i>receipt_long</i>
-                            <span>Crear Factura</span>
-                        </button>
-                    </div>
-                    <div class="divider"></div>
-                    <div class="padding grid">
-                        <div class="s12 m4">
-                            <p class="small-text upper bold">ID Fiscal</p>
-                            <p class="primary-text">{{ clienteActual.Id_Fiscal }}</p>
-                        </div>
-                        <div class="s12 m4">
-                            <p class="small-text upper bold">Email</p>
-                            <p>{{ clienteActual.email || '-' }}</p>
-                        </div>
-                        <div class="s12 m4">
-                            <p class="small-text upper bold">Teléfono</p>
-                            <p>{{ clienteActual.telefono || '-' }}</p>
-                        </div>
-                        <div class="s12 m4">
-                            <p class="small-text upper bold">Ciudad</p>
-                            <p>{{ clienteActual.ciudad || '-' }}</p>
-                        </div>
-                        <div class="s12 m8">
-                            <p class="small-text upper bold">Dirección</p>
-                            <p>{{ clienteActual.direccion || '-' }}</p>
-                        </div>
-                    </div>
-                    <div class="padding">
-                        <span v-if="esActivo(clienteActual)" class="chip small green">Activo</span>
-                        <span v-else class="chip small red">Inactivo</span>
-                    </div>
-                    <div class="padding">
-                        <button class="border" @click="volverABuscar">
-                            <i>arrow_back</i>
-                            <span>Nueva Búsqueda</span>
-                        </button>
-                    </div>
-                </article>
-            </div>
-
+            
             <!-- PANTALLA: FORMULARIO NUEVO CLIENTE -->
             <div v-if="pantalla === 'formulario_nuevo'" class="margin">
                 <div class="row">

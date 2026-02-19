@@ -121,10 +121,16 @@
             }
         },
 
-        cancelar() {
-            if (confirm('¿Está seguro de cancelar? Se perderán los datos ingresados.')) {
-                this.volverAClientes();
+        volverAFacturas() {
+            if (typeof GlobalVariables !== 'undefined' && GlobalVariables.loadModule) {
+                GlobalVariables.loadModule('Lista_Facturas_BCA', {});
+            } else {
+                window.location.href = '../facturas_bca/lista_Facturas.html';
             }
+        },
+
+        cancelar() {
+            this.volverAFacturas()
         },
 
         limpiarCliente() {

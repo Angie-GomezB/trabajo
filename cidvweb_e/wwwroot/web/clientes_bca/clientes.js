@@ -106,7 +106,7 @@
         if (clienteStr) {
             try {
                 this.clienteActual = JSON.parse(clienteStr);
-                this.pantalla = 'encontrado';
+                this.pantalla = 'buscar';
             } catch (e) {
                 this.pantalla = 'buscar';
             }
@@ -379,7 +379,7 @@
                         this.clienteActual = nuevos[0];
                         localStorage.setItem('bca_clienteActual', JSON.stringify(nuevos[0]));
                     }
-                    this.pantalla = 'encontrado';
+                    this.pantalla = 'buscar';
 
                 } else {
                     await httpFunc(
@@ -416,7 +416,7 @@
                         // Siempre volver a buscar (ya no existe pantalla 'todos')
                         this.clienteActual = clienteActualizado;
                         localStorage.setItem('bca_clienteActual', JSON.stringify(clienteActualizado));
-                        this.pantalla = 'encontrado';
+                        this.pantalla = 'buscar';
                     }
                 }
 

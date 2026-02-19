@@ -43,13 +43,13 @@
                         <h5 class="primary-text" style="margin: 0 0 1px 0;">Pantalla Facturas</h5>
                         <p class="no-margin" style="margin: 0; font-size: 0.85rem;">Listado y gestión de facturas</p>
                     </div>
-                    <button class="secondary" v-on:click="irACrearFactura">
+                    <button class="secondary" @click="irACrearFactura">
                         <i>add</i>
                         <span>Nueva Factura</span>
                     </button>
                 </div>
 
-                <article class="border round" style="overflow: hidden;">
+                <article class="border round" style="overflow: hidden; background: #8681812d" ">
 
                     <!-- Loading -->
                     <div v-if="cargando" class="center-align padding">
@@ -64,7 +64,7 @@
                             <i class="extra">receipt_long</i>
                             <p>No hay facturas registradas aún.</p>
                             <div class="space"></div>
-                            <button class="secondary" v-on:click="irACrearFactura">
+                            <button class="secondary" @click="irACrearFactura">
                                 <i>add</i>
                                 <span>Crear primera factura</span>
                             </button>
@@ -72,36 +72,36 @@
 
                         <div v-else>
                             <div id="tablaFacturasScroll"
-                                 style="max-height: calc(100vh - 172px); overflow-y: auto;"
-                                 v-on:scroll="onScrollTabla">
+                                 style="max-height: calc(100vh - 172px); overflow-y: auto; "
+                                 @scroll="onScrollTabla">
                                 <table class="border" style="width:100%;">
                                     <thead style="position: sticky; top: 0; z-index: 10; background: var(--surface);">
                                         <tr>
-                                            <th style="min-width:140px; padding: 6px 8px; vertical-align: bottom;">
+                                            <th style="min-width:140px; padding: 6px 8px; vertical-align: bottom;background: #8681812d">
                                                 <div style="font-size:0.75rem; color:var(--on-surface-variant); margin-bottom:3px;">ID Fiscal</div>
                                                 <input type="text"
                                                        v-model="filtroIdFiscal"
-                                                       v-on:input="aplicarFiltros"
+                                                       @input="aplicarFiltros"
                                                        placeholder="Buscar..."
                                                        maxlength="20"
                                                        style="width:100%; height:26px; font-size:0.78rem; padding:2px 6px; border:1px solid var(--outline); border-radius:4px; background:var(--surface-container-low);">
                                             </th>
-                                            <th style="min-width:180px; padding: 6px 8px; vertical-align: bottom;">
+                                            <th style="min-width:180px; padding: 6px 8px; vertical-align: bottom;background: #8681812d">
                                                 <div style="font-size:0.75rem; color:var(--on-surface-variant); margin-bottom:3px;">Nombre cliente</div>
                                                 <input type="text"
                                                        v-model="filtroNombre"
-                                                       v-on:input="aplicarFiltros"
+                                                       @input="aplicarFiltros"
                                                        placeholder="Buscar..."
                                                        maxlength="200"
                                                        style="width:100%; height:26px; font-size:0.78rem; padding:2px 6px; border:1px solid var(--outline); border-radius:4px; background:var(--surface-container-low);">
                                             </th>
-                                            <th style="min-width:120px; padding: 6px 8px; font-size:0.80rem; vertical-align: bottom;">N° Factura</th>
-                                            <th style="min-width:90px; padding: 6px 8px; font-size:0.80rem; vertical-align: bottom;">Fecha</th>
-                                            <th style="min-width:120px; padding: 6px 8px; font-size:0.80rem; vertical-align: bottom;">Valor</th>
-                                            <th class="center-align" style="min-width:80px; padding: 6px 8px; font-size:0.80rem; vertical-align: bottom;">Estado</th>
-                                            <th style="min-width:100px; padding: 6px 8px; font-size:0.80rem; vertical-align: bottom;">Creado por</th>
-                                            <th style="min-width:100px; padding: 6px 8px; font-size:0.80rem; vertical-align: bottom;">Actualizado por</th>
-                                            <th class="center-align" style="min-width:80px; padding: 6px 8px; font-size:0.80rem; vertical-align: bottom;">Acciones</th>
+                                            <th style="min-width:120px; padding: 6px 8px; font-size:0.80rem; vertical-align: bottom;background: #8681812d">N° Factura</th>
+                                            <th style="min-width:90px; padding: 6px 8px; font-size:0.80rem; vertical-align: bottom;background: #8681812d">Fecha</th>
+                                            <th style="min-width:120px; padding: 6px 8px; font-size:0.80rem; vertical-align: bottom;background: #8681812d">Valor</th>
+                                            <th class="center-align" style="min-width:80px; padding: 6px 8px; font-size:0.80rem; vertical-align: bottom;background: #8681812d">Estado</th>
+                                            <th style="min-width:100px; padding: 6px 8px; font-size:0.80rem; vertical-align: bottom;background: #8681812d">Creado por</th>
+                                            <th style="min-width:100px; padding: 6px 8px; font-size:0.80rem; vertical-align: bottom;background: #8681812d">Actualizado por</th>
+                                            <th class="center-align" style="min-width:80px; padding: 6px 8px; font-size:0.80rem; vertical-align: bottom;background: #8681812d">Acciones</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -124,20 +124,20 @@
                                             <td style="padding:4px 8px; line-height:1.3;">{{ nombreCompletoCliente(f) }}</td>
                                             <td style="padding:4px 8px; line-height:1.3;"><strong>{{ f.Numero_Factura }}</strong></td>
                                             <td style="padding:4px 8px; line-height:1.3;">{{ formatFecha(f.Fecha_Emision) }}</td>
-                                            <td style="padding:4px 8px; line-height:1.3;">{{ formatCOP(f.Valor_Factura) }}</td>
+                                            <td style="padding:4px 8px; line-height:1.3;">{{ formatCOP(parseFloat(f.Valor_Factura || 0) + parseFloat(f.Valor_Impuesto || 0)) }} </td>
                                             <td class="center-align" style="padding:4px 8px;">
-                                                <span v-if="f.Estado_Factura === 'GENERADA'" style="background:#4caf50;color:#fff;font-size:0.65rem;padding:2px 7px;border-radius:10px;font-weight:600;white-space:nowrap;">GENERADA</span>
-                                                <span v-else-if="f.Estado_Factura === 'AJUSTADA'" style="background:#ff6600;color:#fff;font-size:0.65rem;padding:2px 7px;border-radius:10px;font-weight:600;white-space:nowrap;">AJUSTADA</span>
+                                                <span v-if="f.Estado_Factura === 'GENERADA' && f.Updated_By" style="background:#ff6a00;color:#fff;font-size:0.65rem;padding:2px 7px;border-radius:10px;font-weight:600;white-space:nowrap;">AJUSTADA</span>
+                                                <span v-else-if="f.Estado_Factura === 'GENERADA'" style="background:#4caf50;color:#fff;font-size:0.65rem;padding:2px 7px;border-radius:10px;font-weight:600;white-space:nowrap;">GENERADA</span>
                                                 <span v-else style="background:var(--surface-variant);color:var(--on-surface-variant);font-size:0.65rem;padding:2px 7px;border-radius:10px;font-weight:600;white-space:nowrap;">{{ f.Estado_Factura }}</span>
                                             </td>
                                             <td style="padding:4px 8px; line-height:1.3; font-size:0.78rem;">{{ f.Created_By || '-' }}</td>
                                             <td style="padding:4px 8px; line-height:1.3; font-size:0.78rem;">{{ f.Updated_By || '-' }}</td>
                                             <td class="center-align" style="padding:4px 6px; white-space:nowrap;">
-                                                <button class="small-round border" v-on:click="verDetalle(f)" title="Ver detalle" style="width:28px;height:28px;min-width:28px;margin:0 2px;">
+                                                <button class="small-round border" @click="verDetalle(f)" title="Ver detalle" style="width:28px;height:28px;min-width:28px;margin:0 2px;">
                                                     <i style="font-size:0.9rem;">visibility</i>
                                                 </button>
-                                                <button class="small-round secondary" v-on:click="editarFactura(f)" title="Editar" style="width:28px;height:28px;min-width:28px;margin:0 2px;">
-                                                    <i style="font-size:0.9rem;">edit</i>
+                                                <button class="small-round border" @click="editarFactura(f)" title="Editar" style="width:28px;height:28px;min-width:28px;margin:0 2px;">
+                                                    <i>edit</i>
                                                 </button>
                                             </td>
                                         </tr>
@@ -171,15 +171,15 @@
             <div v-if="pantalla === 'detalle' && facturaSeleccionada" class="margin">
                 <div class="row">
                     <h5 class="max primary-text">Detalle de Factura</h5>
-                    <button class="border" v-on:click="verHistorial(facturaSeleccionada)">
+                    <button class="border" @click="verHistorial(facturaSeleccionada)">
                         <i>history</i>
                         <span>Historial</span>
                     </button>
-                    <button class="secondary" v-on:click="editarFactura(facturaSeleccionada)">
+                    <button class="secondary" @click="editarFactura(facturaSeleccionada)">
                         <i>edit</i>
                         <span>Editar</span>
                     </button>
-                    <button class="border" v-on:click="pantalla = 'listado'">
+                    <button class="border" @click="pantalla = 'listado'">
                         <i>arrow_back</i>
                         <span>Volver</span>
                     </button>
@@ -307,7 +307,7 @@
             <div v-if="pantalla === 'historial'" class="margin">
                 <div class="row">
                     <h5 class="max primary-text">Historial de Cambios</h5>
-                    <button class="border" v-on:click="pantalla = 'detalle'">
+                    <button class="border" @click="pantalla = 'detalle'">
                         <i>arrow_back</i>
                         <span>Volver</span>
                     </button>
@@ -353,7 +353,7 @@
                                     <td style="padding:4px 8px;">{{ formatCOP(h.Valor_Impuesto) }}</td>
                                     <td style="padding:4px 8px;">{{ h.Motivo_Cambio || '-' }}</td>
                                     <td class="center-align" style="padding:4px 8px;">
-                                        <button class="small-round border" v-on:click="verDetalleHistorial(h)" title="Ver detalle del cambio">
+                                        <button class="small-round border" @click="verDetalleHistorial(h)" title="Ver detalle del cambio">
                                             <i>zoom_in</i>
                                         </button>
                                     </td>
@@ -370,7 +370,7 @@
             <div v-if="pantalla === 'detalle_historial' && historialSeleccionado" class="margin">
                 <div class="row">
                     <h5 class="max primary-text">Detalle del Cambio</h5>
-                    <button class="border" v-on:click="pantalla = 'historial'">
+                    <button class="border" @click="pantalla = 'historial'">
                         <i>arrow_back</i>
                         <span>Volver</span>
                     </button>
@@ -480,7 +480,7 @@
             <div v-if="pantalla === 'editar'" class="margin">
                 <div class="row">
                     <h5 class="max primary-text">Editar Factura</h5>
-                    <button class="border" v-on:click="cancelarEdicion">
+                    <button class="border" @click="cancelarEdicion">
                         <i>close</i>
                         <span>Cancelar</span>
                     </button>
@@ -581,7 +581,7 @@
                             <div class="s12 m6">
                                 <div class="field border label">
                                     <input type="number" v-model.number="formFactura.Valor_Factura"
-                                           step="0.01" min="0" v-on:input="calcularImpuesto">
+                                           step="0.01" min="0" @input="calcularImpuesto">
                                     <label>Valor Factura <span class="secondary-text">*</span></label>
                                     <span class="helper">En COP</span>
                                 </div>
@@ -589,14 +589,14 @@
                             <div class="s12 m6">
                                 <div class="field border label">
                                     <input type="number" v-model.number="formFactura.Base_Calculo"
-                                           step="0.01" min="0" v-on:input="calcularImpuesto">
+                                           step="0.01" min="0" @input="calcularImpuesto">
                                     <label>Base de Cálculo</label>
                                 </div>
                             </div>
                             <div class="s12 m6">
                                 <div class="field border label">
                                     <input type="number" v-model.number="formFactura.Porcentaje_Impuesto"
-                                           step="0.01" min="0" max="100" v-on:input="calcularImpuesto">
+                                           step="0.01" min="0" max="100" @input="calcularImpuesto">
                                     <label>Porcentaje Impuesto (%)</label>
                                 </div>
                             </div>
@@ -644,10 +644,10 @@
 
                         <div class="space"></div>
                         <nav class="space-between">
-                            <button class="border" v-on:click="cancelarEdicion" v-bind:disabled="guardando">
+                            <button class="border" @click="cancelarEdicion" v-bind:disabled="guardando">
                                 Cancelar
                             </button>
-                            <button class="secondary" v-on:click="guardarFactura"
+                            <button class="secondary" @click="guardarFactura"
                                     v-bind:disabled="guardando || !formValido">
                                 <i>{{ guardando ? 'hourglass_empty' : 'save' }}</i>
                                 <span>{{ guardando ? 'Guardando...' : 'GUARDAR CAMBIOS' }}</span>
