@@ -30,7 +30,7 @@ select
     Fecha_Actualizacion
 from Fact_Clientes
 where 1 = 1
-    and (@Id_Fiscal is null or Id_Fiscal = @Id_Fiscal)
+    and (@Id_Fiscal is null or Id_Fiscal like @Id_Fiscal + '%')
     and (
         @Filtro_Nombre is null
         or lower(ISNULL(Nm_Cliente1, '') + ' ' + ISNULL(Ap_Cliente1, ''))
