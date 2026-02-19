@@ -1072,3 +1072,5 @@ Pars: @Id_Factura|
 Vals: 7|
 2026-02-18 07:01:26	INIT
 2026-02-18 07:01:26	WebBDUt(1033) init. UseCache:False
+2026-02-18 07:18:35	INIT
+2026-02-18 07:18:35	WebBDUt(1033) init. UseCache:False

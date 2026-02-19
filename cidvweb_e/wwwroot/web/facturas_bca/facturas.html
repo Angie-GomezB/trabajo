@@ -122,15 +122,6 @@
 
                             <!-- Estado: sugerencias encontradas -->
                             <menu class="min" v-else-if="mostrarSugerencias && sugerenciasFiltradas.length > 0" style="position: absolute; top: 100%; bottom: auto !important; z-index: 999;">
-
-                                <!-- Encabezado con el texto actual -->
-                                <li class="transparent">
-                                    <div class="field large prefix">
-                                        <i class="front">badge</i>
-                                        <input :value="'Resultados para: ' + busquedaIdFiscal" disabled>
-                                    </div>
-                                </li>
-
                                 <!-- Cada sugerencia -->
                                 <li v-for="item in sugerenciasFiltradas"
                                     :key="item.Id_Fiscal"
